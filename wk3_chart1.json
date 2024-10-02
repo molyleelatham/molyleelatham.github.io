@@ -1,0 +1,33 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "S&P 500 index over time.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/7c4d3ac01b54752d4c8f11bb66ee31a181861b0c/SP500.csv"
+    },
+    "title": {
+      "text": "S&P 500 over time",
+      "subtitle": "Source: FRED",
+      "align": "left",
+      "anchor": "start"
+    },
+    "width": 500,
+    "height": 500,
+    "mark": {
+      "type": "line",
+      "interpolate": "step-after"
+    },
+    "encoding": {
+      "x": {
+        "field": "DATE",
+        "type": "temporal",
+        "axis": {
+          "format": "%Y"  
+        }
+      },
+      "y": {
+        "field": "SP500",
+        "type": "quantitative"
+      }
+    }
+  }
+  
