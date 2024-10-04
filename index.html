@@ -79,46 +79,61 @@
     </section>
     <section>
         <div class="chart-description">
-            <h2>Section 3: Economics Observatory</h2>
+            <h2>Section 3: GDP per capita, Vietnam </h2>
             <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-                As a first example, we're using a basic chart from our repo.
+                Week 3 Portfolio task, graph made from EconomicsObservatory
             </p>
         </div>
         <figure id="Location3"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
     </section>
     <section></section>
         <div class="chart-description">
-            <h2>Section 4: S&P 500 over time </h2>
+            <h2>Section 4: Ukraine empolyment rate over time </h2>
             <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                Week 3 practical
+                Week 3 Portfolio task, graph made from EconomicsObservatory
             </p>
         </div>
         <figure id="Location4"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
     </section>
-
-    <!-- Do you want to add more sections? -->
-        <!-- Try copying pasting the section above -->
-        <!-- You'll need to change the id of the figure "<figure id="Location3"... -->
-        <!-- ... and add a new variable for the graph spec in the script at the bottom of the page -->
-
-
-    <!-- This is a script, it's a way to run JavaScript code on the page -->
+    <section></section>
+        <div class="chart-description">
+            <h2>Section 5: Gender Pay Gap 1997-2023 </h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                My graph supporting the gender pay gap discussion at the Festival of Economics: Dimmensions of Inequalities. The graph looks at the gender pay gap between different types of empolyment. This graph supports the arguement that the UK still has inequalities that are decreasing over time. 
+            </p>
+        </div>
+        <figure id="Location5"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </section>
+    <section></section>
+    <div class="chart-description">
+        <h2>Section 6: Gender Pay Growth </h2>
+        <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+            My graph exploring the growth of annual income seperated by gender. During the talk, Richard explored the narrative of annual income growth amongst men but neglected to make the comparison against women's annual income growth. Women's annual income on average out performed on growth. Hower if we were to look at this critically, the gender pay gap is still prevelvant. In order to mitigate this women's annual income must grow substaincially more. 
+        </p>
+    </div>
+    <figure id="Location6"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+</section>
     <script>
         // Embedding the first chart
         let figure_1_spec = "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/2/s2_chart2.json";
-        vegaEmbed('#Location1', figure_1_spec); // Embed chart 1
+        vegaEmbed('#Location1', figure_1_spec);
     
         // Embedding the second chart
         let figure_2_spec = "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/charts/ukMacro/BoE_liabilities.json";
-        vegaEmbed('#Location2', figure_2_spec); // Embed chart 2
+        vegaEmbed('#Location2', figure_2_spec);
     
         // Embedding the third chart
         let figure_3_spec = "wk2_chart1.json"
-        vegaEmbed('#Location3', figure_3_spec); // Embed chart 3
+        vegaEmbed('#Location3', figure_3_spec);
 
         let figure_4_spec = "wk2_chart2.json"
-        vegaEmbed('#Location4', figure_4_spec); // Embed chart 3
+        vegaEmbed('#Location4', figure_4_spec); 
+
+        let figure_5_spec = "wk3_genderpaygap.json"
+        vegaEmbed('#Location5', figure_5_spec); 
+
+        let figure_6_spec = "wk3_genderpaygrowth.json"
+        vegaEmbed('#Location6', figure_6_spec); 
         
     
 

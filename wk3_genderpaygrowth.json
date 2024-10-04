@@ -1,0 +1,20 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Annual growth in earnings for full-time employees in the UK (2000-2023) by gender.",
+    "title": "Annual growth in earnings for full-time employees in the UK (2000-2023) by gender",
+    "data": {
+      "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/annual-growth-in-earnings-for-full-time-employees-in-the-uk-2000-2023-by-gender.csv"
+    },
+    "width": 600,
+    "height": 400,
+    "transform": [
+      {"fold": ["Male", "Female"], "as": ["Gender", "Percent"]}
+    ],
+    "mark": "line",
+    "encoding": {
+      "x": {"field": "Year", "type": "temporal"},
+      "y": {"field": "Percent", "type": "quantitative"},
+      "color": {"field": "Gender", "type": "nominal"}
+    }
+  }
+  

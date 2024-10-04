@@ -1,0 +1,28 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Annual gender pay gap in the UK (1997-2023) across different employment types.",
+    "title": "Annual gender pay gap in the UK (1997-2023) by employment type",
+    "data": {
+      "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/gender-pay-gap-in-the-uk-1997-2023.csv"
+    },
+    "width": 600,
+    "height": 400,
+    "transform": [
+      {"fold": ["All-employees", "Full-time", "Part-time"], "as": ["Employment Type", "Value"]}
+    ],
+    "mark": "line",
+    "encoding": {
+      "x": {"field": "Year", "type": "temporal", "title": "Year"},
+      "y": {
+        "field": "Value",
+        "type": "quantitative",
+        "title": "Gender Pay Gap (%)"
+      },
+      "color": {
+        "field": "Employment Type",
+        "type": "nominal",
+        "title": "Employment Type"
+      }
+    }
+  }
+  
