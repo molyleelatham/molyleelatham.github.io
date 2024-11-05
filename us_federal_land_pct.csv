@@ -1,0 +1,52 @@
+name,value,id,alpha_id
+Alabama,2.7,1,AL
+Alaska,60.9,2,AK
+Arizona,38.6,4,AZ
+Arkansas,9.4,5,AR
+California,45.4,6,CA
+Colorado,36.2,8,CO
+Connecticut,0.3,9,CT
+Delaware,2.4,10,DE
+District of Columbia,24.7,11,DC
+Florida,12.9,12,FL
+Georgia,12.9,13,GA
+Hawaii,20.2,15,HI
+Idaho,61.9,16,ID
+Illinois,1.2,17,IL
+Indiana,1.7,18,IN
+Iowa,0.3,19,IA
+Kansas,0.5,20,KS
+Kentucky,4.3,21,KY
+Louisiana,4.7,22,LA
+Maine,1.5,23,ME
+Maryland,3.2,24,MD
+Massachusetts,1.2,25,MA
+Michigan,10,26,MI
+Minnesota,6.8,27,MN
+Mississippi,5.1,28,MS
+Missouri,3.8,29,MO
+Montana,29,30,MT
+Nebraska,1.1,31,NE
+Nevada,80.1,32,NV
+New Hampshire,14,33,NH
+New Jersey,3.6,34,NJ
+New Mexico,31.7,35,NM
+New York,0.8,36,NY
+North Carolina,7.8,37,NC
+North Dakota,3.9,38,ND
+Ohio,1.2,39,OH
+Oklahoma,1.5,40,OK
+Oregon,52.3,41,OR
+Pennsylvania,2.2,42,PA
+Rhode Island,0.7,44,RI
+South Carolina,4.5,45,SC
+South Dakota,5.4,46,SD
+Tennessee,4.8,47,TN
+Texas,1.9,48,TX
+Utah,63.1,49,UT
+Vermont,7.8,50,VT
+Virginia,9.3,51,VA
+Washington,28.6,53,WA
+West Virginia,7.4,54,WV
+Wisconsin,5.3,55,WI
+Wyoming,46.7,56,WY

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Life Expectancy",
+    "subtitle": ["Most Recent Data (2020)", "Source: CDC", ""],
+    "fontSize": 16,
+    "subtitleFontSize": 12,
+    "subtitleFontWeight": "lighter",
+    "anchor": "middle"
+  },
+  "description": "A map of US life expectancy using 2020 CDC data.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/datasets/advanced/us_states.json",
+    "format": {"type": "topojson", "feature": "states"}
+  },
+  "width": 600,
+  "height": 330,
+  "transform": [
+    {
+      "lookup": "id",
+      "from": {
+        "key": "id",
+        "fields": ["value", "name"],
+        "data": {
+          "url": "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/datasets/simple/us_life_expec_cdc.csv"
+        }
+      }
+    }
+  ],
+  "projection": {"type": "albersUsa"},
+  "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.3},
+  "encoding": {
+    "color": {
+      "condition": {"value": "lightgrey", "test": "!datum['value']"},
+      "field": "value",
+      "type": "quantitative",
+      "legend": {"title": ""},
+      "scale": {"type": "linear", "scheme": "redyellowgreen", "reverse": false}
+    },
+    "tooltip": [
+      {"field": "name", "title": "state"},
+      {"field": "value", "title": ""}
+    ]
+  }
+}

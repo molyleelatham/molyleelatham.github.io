@@ -1,0 +1,52 @@
+name,value,id,alpha_id
+North Dakota,2,38,ND
+South Dakota,2.1,46,SD
+Vermont,2.2,50,VT
+Maryland,2.5,24,MD
+Nebraska,2.5,31,NE
+New Hampshire,2.6,33,NH
+Kansas,2.7,20,KS
+Minnesota,2.7,27,MN
+Utah,2.8,49,UT
+Wyoming,2.8,56,WY
+Iowa,2.9,19,IA
+Massachusetts,2.9,25,MA
+Virginia,2.9,51,VA
+Alabama,3,1,AL
+Mississippi,3,28,MS
+Wisconsin,3,55,WI
+Georgia,3.1,13,GA
+Hawaii,3.1,15,HI
+South Carolina,3.1,45,SC
+Florida,3.2,12,FL
+Tennessee,3.2,47,TN
+Idaho,3.3,16,ID
+Maine,3.3,23,ME
+Missouri,3.3,29,MO
+Montana,3.3,30,MT
+Pennsylvania,3.4,42,PA
+Arkansas,3.5,5,AR
+Indiana,3.5,18,IN
+North Carolina,3.5,37,NC
+Oklahoma,3.5,40,OK
+Colorado,3.7,8,CO
+Arizona,3.8,4,AZ
+New Mexico,3.8,35,NM
+Ohio,3.8,39,OH
+Delaware,3.9,10,DE
+Michigan,3.9,26,MI
+Texas,3.9,48,TX
+Rhode Island,4,44,RI
+Oregon,4.2,41,OR
+New York,4.3,36,NY
+West Virginia,4.3,54,WV
+Louisiana,4.4,22,LA
+Connecticut,4.5,9,CT
+Kentucky,4.5,21,KY
+Alaska,4.6,2,AK
+Illinois,4.8,17,IL
+New Jersey,4.8,34,NJ
+Washington,4.8,53,WA
+Nevada,5.1,32,NV
+District of Columbia,5.2,11,DC
+California,5.3,6,CA
