@@ -1,12 +1,12 @@
 {
-    "Meta Data": {
-        "1. Information": "Daily Prices (open, high, low, close) and Volumes",
-        "2. Symbol": "META",
-        "3. Last Refreshed": "2024-11-07",
-        "4. Output Size": "Full size",
-        "5. Time Zone": "US/Eastern"
-    },
     "Time Series (Daily)": {
+        "2024-11-08": {
+            "1. open": "591.5400",
+            "2. high": "593.1000",
+            "3. low": "584.5200",
+            "4. close": "589.3400",
+            "5. volume": "9415699"
+        },
         "2024-11-07": {
             "1. open": "576.8900",
             "2. high": "594.7999",

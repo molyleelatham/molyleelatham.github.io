@@ -1,12 +1,12 @@
 {
-    "Meta Data": {
-        "1. Information": "Daily Prices (open, high, low, close) and Volumes",
-        "2. Symbol": "GOOGL",
-        "3. Last Refreshed": "2024-11-07",
-        "4. Output Size": "Full size",
-        "5. Time Zone": "US/Eastern"
-    },
     "Time Series (Daily)": {
+        "2024-11-08": {
+            "1. open": "180.6450",
+            "2. high": "180.9000",
+            "3. low": "178.0800",
+            "4. close": "178.3500",
+            "5. volume": "22006182"
+        },
         "2024-11-07": {
             "1. open": "177.4100",
             "2. high": "181.0800",

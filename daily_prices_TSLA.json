@@ -1,12 +1,12 @@
 {
-    "Meta Data": {
-        "1. Information": "Daily Prices (open, high, low, close) and Volumes",
-        "2. Symbol": "TSLA",
-        "3. Last Refreshed": "2024-11-07",
-        "4. Output Size": "Full size",
-        "5. Time Zone": "US/Eastern"
-    },
     "Time Series (Daily)": {
+        "2024-11-08": {
+            "1. open": "299.1400",
+            "2. high": "328.7100",
+            "3. low": "297.6600",
+            "4. close": "321.2200",
+            "5. volume": "204782763"
+        },
         "2024-11-07": {
             "1. open": "288.8900",
             "2. high": "299.7500",

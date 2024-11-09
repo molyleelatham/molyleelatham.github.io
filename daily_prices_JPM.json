@@ -1,12 +1,12 @@
 {
-    "Meta Data": {
-        "1. Information": "Daily Prices (open, high, low, close) and Volumes",
-        "2. Symbol": "JPM",
-        "3. Last Refreshed": "2024-11-07",
-        "4. Output Size": "Full size",
-        "5. Time Zone": "US/Eastern"
-    },
     "Time Series (Daily)": {
+        "2024-11-08": {
+            "1. open": "239.3400",
+            "2. high": "239.3400",
+            "3. low": "235.7800",
+            "4. close": "236.9800",
+            "5. volume": "9502100"
+        },
         "2024-11-07": {
             "1. open": "244.5000",
             "2. high": "244.5700",

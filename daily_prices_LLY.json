@@ -1,12 +1,12 @@
 {
-    "Meta Data": {
-        "1. Information": "Daily Prices (open, high, low, close) and Volumes",
-        "2. Symbol": "LLY",
-        "3. Last Refreshed": "2024-11-07",
-        "4. Output Size": "Full size",
-        "5. Time Zone": "US/Eastern"
-    },
     "Time Series (Daily)": {
+        "2024-11-08": {
+            "1. open": "803.5000",
+            "2. high": "847.2700",
+            "3. low": "801.2600",
+            "4. close": "831.5400",
+            "5. volume": "7212870"
+        },
         "2024-11-07": {
             "1. open": "784.6500",
             "2. high": "802.5500",
