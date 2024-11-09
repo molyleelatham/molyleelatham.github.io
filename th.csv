@@ -1,0 +1,83 @@
+city,lat,lng,country,iso2,admin_name,capital,population,population_proper
+Bangkok,13.7525,100.4942,Thailand,TH,Krung Thep Maha Nakhon,primary,18007000,8305218
+Chiang Mai,18.7953,98.9986,Thailand,TH,Chiang Mai,admin,1198000,1198000
+Nonthaburi,13.8667,100.5167,Thailand,TH,Nonthaburi,admin,255671,255671
+Pak Kret,13.9125,100.4978,Thailand,TH,Nonthaburi,minor,184501,184501
+Ban Bang Pu Mai,13.5441,100.6175,Thailand,TH,Samut Prakan,,120058,120058
+Ban Mangkon,13.6138,100.6104,Thailand,TH,Samut Prakan,,102291,102291
+Ban Talat Rangsit,13.9833,100.6167,Thailand,TH,Pathum Thani,,79319,79319
+Phuket,7.8881,98.3975,Thailand,TH,Phuket,admin,77610,77610
+Samut Sakhon,13.5486,100.2775,Thailand,TH,Samut Sakhon,admin,60103,60103
+Ban Rangsit,14.0167,100.7500,Thailand,TH,Pathum Thani,,58838,58838
+Ban Bang Kaeo,13.6371,100.6636,Thailand,TH,Samut Prakan,,56949,56949
+Phra Nakhon Si Ayutthaya,14.3478,100.5606,Thailand,TH,Phra Nakhon Si Ayutthaya,admin,52940,52940
+Muban Saeng Bua Thong,13.9424,100.3913,Thailand,TH,Nonthaburi,,51932,51932
+Samut Prakan,13.5897,100.6386,Thailand,TH,Samut Prakan,admin,51309,51309
+Bang Bua Thong,13.9099,100.4263,Thailand,TH,Nonthaburi,minor,50141,50141
+Chong Nonsi,13.6965,100.5427,Thailand,TH,Krung Thep Maha Nakhon,,47872,47872
+Bang Kruai,13.8042,100.4755,Thailand,TH,Nonthaburi,minor,42390,42390
+Ban Doi Suthep,18.7944,98.9142,Thailand,TH,Chiang Mai,,36952,36952
+Ban Sai Ma Tai,13.8444,100.4829,Thailand,TH,Nonthaburi,,30750,30750
+Samrong,13.6421,100.6039,Thailand,TH,Samut Prakan,,30382,30382
+Bang Phongphang,13.6791,100.5291,Thailand,TH,Samut Prakan,,28692,28692
+Ban Bang Phun,13.9968,100.5891,Thailand,TH,Pathum Thani,,24625,24625
+Bang Sao Thong,13.5812,100.7957,Thailand,TH,Samut Prakan,minor,23630,23630
+Sai Mai,13.8882,100.4620,Thailand,TH,Krung Thep Maha Nakhon,minor,23316,23316
+Ban Bang Krang,13.8422,100.4539,Thailand,TH,Nonthaburi,,23010,23010
+Krathum Baen,13.6631,100.2572,Thailand,TH,Samut Sakhon,minor,21904,21904
+Ban Mae Kha Tai,18.7352,98.9678,Thailand,TH,Chiang Mai,,18546,18546
+Ban Rawai,7.7707,98.3185,Thailand,TH,Phuket,,16988,16988
+Pathum Thani,14.0500,100.4833,Thailand,TH,Pathum Thani,admin,13987,13987
+Phra Samut Chedi,13.5976,100.5848,Thailand,TH,Samut Prakan,minor,13082,13082
+Bang Phlat,13.8247,100.4908,Thailand,TH,Krung Thep Maha Nakhon,minor,12482,12482
+Phra Pradaeng,13.6592,100.5331,Thailand,TH,Samut Prakan,minor,10190,10190
+Ban Son Loi,13.9122,100.4200,Thailand,TH,Nonthaburi,,9245,9245
+Ban Chang Phuak,18.8032,98.9811,Thailand,TH,Chiang Mai,,9191,9191
+Bangkok Yai,13.7232,100.4760,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Thon Buri,13.7250,100.4851,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Sathon,13.7085,100.5262,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Din Daeng,13.7368,100.5039,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Pom Prap Sattru Phai,13.7582,100.5132,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Bang Kho Laem,13.6935,100.5022,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Ratchathewi,13.7590,100.5336,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Samphanthawong,13.7315,100.5141,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Khlong San,13.7309,100.5090,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Phaya Thai,13.7800,100.5427,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Yan Nawa,13.6963,100.5421,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Watthana,13.7298,100.5854,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Bangkok Noi,13.7627,100.4780,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Khlong Toei,13.7167,100.5716,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Wang Thonglang,13.7855,100.6116,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Bang Rak,13.7306,100.5239,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Bang Kapi,13.7653,100.6470,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Bang Sue,13.8100,100.5371,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Phra Nakhon,13.7651,100.4986,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Pathum Wan,13.7365,100.5239,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Phra Khanong,13.7019,100.6016,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Huai Khwang,13.7768,100.5790,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Chatuchak,13.8289,100.5599,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Dusit,13.7775,100.5198,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Phasi Charoen,13.7147,100.4369,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Rat Burana,13.6822,100.5060,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Chom Thong,13.6772,100.4841,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Lak Si,13.8872,100.5792,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Lat Phrao,13.8035,100.6075,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Bang Na,13.6674,100.6421,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Taling Chan,13.7770,100.4567,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Don Mueang,13.9139,100.5899,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Bang Khen,13.8738,100.5968,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Bang Khae,13.6920,100.4069,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Nong Khaem,13.7053,100.3492,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Bueng Kum,13.7853,100.6696,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Thung Khru,13.6287,100.5096,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Khan Na Yao,13.8261,100.6793,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Saphan Sung,13.7702,100.6853,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Suan Luang,13.7303,100.6514,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Bang Bon,13.6619,100.3957,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Prawet,13.7174,100.6945,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Min Buri,13.8141,100.7314,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Thanyaburi,14.0211,100.7343,Thailand,TH,Pathum Thani,minor,,
+Khlong Sam Wa,13.8362,100.7352,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Bang Khun Thian,13.6630,100.4342,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Lat Krabang,13.7234,100.7844,Thailand,TH,Krung Thep Maha Nakhon,minor,,
+Thawi Watthana,13.7885,100.3333,Thailand,TH,Krung Thep Maha Nakhon,minor,,
