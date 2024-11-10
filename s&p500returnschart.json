@@ -1,0 +1,178 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "S&P 500 Historical Performance Metrics",
+    "width": 800,
+    "height": 500,
+    "data": {
+      "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/returns_data.csv",
+      "format": {
+        "type": "csv",
+        "delimiter": ","
+      }
+    },
+    "params": [{
+      "name": "metric_selection",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "Change in Index",
+          "Total Annual Return",
+          "5-Year Return",
+          "10-Year Return",
+          "15-Year Return",
+          "20-Year Return",
+          "25-Year Return"
+        ],
+        "labels": [
+          "All Metrics",
+          "Change in Index",
+          "Total Annual Return",
+          "5-Year Annualized",
+          "10-Year Annualized",
+          "15-Year Annualized",
+          "20-Year Annualized",
+          "25-Year Annualized"
+        ],
+        "name": "Select Metric "
+      }
+    }],
+    "transform": [
+      {
+        "filter": "datum.Year != null && datum.Year != 'Year' && datum.Year != 'High' && datum.Year != 'Low' && datum.Year != 'Median'"
+      },
+      {
+        "calculate": "replace(replace(datum['Change in Index'], '−', '-'), '%', '')",
+        "as": "Change"
+      },
+      {
+        "calculate": "replace(replace(datum['Total Annual Return, Including Dividends'], '−', '-'), '%', '')",
+        "as": "TotalReturn"
+      },
+      {
+        "calculate": "replace(replace(datum['5-Year Annualized Return'], '−', '-'), '%', '')",
+        "as": "FiveYear"
+      },
+      {
+        "calculate": "replace(replace(datum['10-Year Annualized Return'], '−', '-'), '%', '')",
+        "as": "TenYear"
+      },
+      {
+        "calculate": "replace(replace(datum['15-Year Annualized Return'], '−', '-'), '%', '')",
+        "as": "FifteenYear"
+      },
+      {
+        "calculate": "replace(replace(datum['20-Year Annualized Return'], '−', '-'), '%', '')",
+        "as": "TwentyYear"
+      },
+      {
+        "calculate": "replace(replace(datum['25-Year Annualized Return'], '−', '-'), '%', '')",
+        "as": "TwentyFiveYear"
+      },
+      {
+        "fold": [
+          "Change",
+          "TotalReturn", 
+          "FiveYear",
+          "TenYear",
+          "FifteenYear",
+          "TwentyYear",
+          "TwentyFiveYear"
+        ],
+        "as": ["Metric", "Value"]
+      },
+      {
+        "calculate": "parseFloat(datum.Value)",
+        "as": "NumericValue"
+      },
+      {
+        "calculate": "if(datum.Metric === 'Change', 'Change in Index', if(datum.Metric === 'TotalReturn', 'Total Annual Return', if(datum.Metric === 'FiveYear', '5-Year Return', if(datum.Metric === 'TenYear', '10-Year Return', if(datum.Metric === 'FifteenYear', '15-Year Return', if(datum.Metric === 'TwentyYear', '20-Year Return', '25-Year Return'))))))",
+        "as": "MetricName"
+      },
+      {
+        "filter": "metric_selection === 'All' || datum.MetricName === metric_selection"
+      }
+    ],
+    "layer": [
+      {
+        "mark": {
+          "type": "line",
+          "point": true
+        },
+        "encoding": {
+          "x": {
+            "field": "Year",
+            "type": "ordinal",
+            "title": "Year",
+            "axis": {
+              "labelAngle": -45
+            }
+          },
+          "y": {
+            "field": "NumericValue",
+            "type": "quantitative",
+            "title": "Return (%)"
+          },
+          "color": {
+            "field": "MetricName",
+            "type": "nominal",
+            "title": "Performance Metric",
+            "scale": {
+              "domain": [
+                "Change in Index",
+                "Total Annual Return",
+                "5-Year Return",
+                "10-Year Return",
+                "15-Year Return",
+                "20-Year Return",
+                "25-Year Return"
+              ],
+              "range": [
+                "#e41a1c",
+                "#377eb8",
+                "#4daf4a",
+                "#984ea3",
+                "#ff7f00",
+                "#2E8B57",
+                "#a65628"
+              ]
+            }
+          },
+          "strokeWidth": {
+            "condition": [
+              {
+                "test": "metric_selection === 'All' ? datum.MetricName === 'Total Annual Return' : true",
+                "value": 3
+              }
+            ],
+            "value": 1.5
+          },
+          "opacity": {
+            "condition": {
+              "test": "metric_selection === 'All' || datum.MetricName === metric_selection",
+              "value": 1
+            },
+            "value": 0.2
+          },
+          "tooltip": [
+            {"field": "Year", "type": "ordinal", "title": "Year"},
+            {"field": "MetricName", "type": "nominal", "title": "Metric"},
+            {"field": "NumericValue", "type": "quantitative", "title": "Return (%)", "format": ".2f"}
+          ]
+        }
+      },
+      {
+        "mark": "point",
+        "encoding": {
+          "x": {"field": "Year", "type": "ordinal"},
+          "y": {"field": "NumericValue", "type": "quantitative"},
+          "tooltip": [
+            {"field": "Year", "type": "ordinal", "title": "Year"},
+            {"field": "MetricName", "type": "nominal", "title": "Metric"},
+            {"field": "NumericValue", "type": "quantitative", "title": "Return (%)", "format": ".2f"}
+          ]
+        }
+      }
+    ]
+  }

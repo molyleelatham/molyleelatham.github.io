@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investors Pouring into Bonds</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+
+    <!-- Add the image above the graph -->
+    <img src="https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3A276c1fe9-a400-42dd-bcaa-321647bf7076?source=next-article&fit=scale-down&quality=highest&width=700&dpr=2" alt="Investment Trends Image" width="700">
+
+    <!-- Container for Vega-Lite Graph -->
+    <div id="vis"></div>
+
+    <script>
+      // Vega-Lite Specification
+      var vlSpec = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "title": {
+          "text": "Investors are pouring into bonds",
+          "subtitle": "US fixed-income ETFs saw record quarterly inflows",
+          "fontSize": 16,
+          "subtitleFontSize": 13,
+          "anchor": "start"
+        },
+        "width": 600,
+        "height": 400,
+        "data": {
+          "values": [
+            {"year": 2015, "quarter": 1, "netFlow": 22},
+            {"year": 2015, "quarter": 2, "netFlow": 2},
+            {"year": 2015, "quarter": 3, "netFlow": 23},
+            {"year": 2015, "quarter": 4, "netFlow": 17},
+            {"year": 2016, "quarter": 1, "netFlow": 34},
+            {"year": 2016, "quarter": 2, "netFlow": 16},
+            {"year": 2016, "quarter": 3, "netFlow": 29},
+            {"year": 2016, "quarter": 4, "netFlow": 14},
+            {"year": 2017, "quarter": 1, "netFlow": 35},
+            {"year": 2017, "quarter": 2, "netFlow": 35},
+            {"year": 2017, "quarter": 3, "netFlow": 32},
+            {"year": 2017, "quarter": 4, "netFlow": 24},
+            {"year": 2018, "quarter": 1, "netFlow": 17},
+            {"year": 2018, "quarter": 2, "netFlow": 30},
+            {"year": 2018, "quarter": 3, "netFlow": 26},
+            {"year": 2018, "quarter": 4, "netFlow": 27},
+            {"year": 2019, "quarter": 1, "netFlow": 35},
+            {"year": 2019, "quarter": 2, "netFlow": 41},
+            {"year": 2019, "quarter": 3, "netFlow": 37},
+            {"year": 2019, "quarter": 4, "netFlow": 40},
+            {"year": 2020, "quarter": 1, "netFlow": 14},
+            {"year": 2020, "quarter": 2, "netFlow": 83},
+            {"year": 2020, "quarter": 3, "netFlow": 55},
+            {"year": 2020, "quarter": 4, "netFlow": 51},
+            {"year": 2021, "quarter": 1, "netFlow": 38},
+            {"year": 2021, "quarter": 2, "netFlow": 58},
+            {"year": 2021, "quarter": 3, "netFlow": 48},
+            {"year": 2021, "quarter": 4, "netFlow": 48},
+            {"year": 2022, "quarter": 1, "netFlow": 20},
+            {"year": 2022, "quarter": 2, "netFlow": 38},
+            {"year": 2022, "quarter": 3, "netFlow": 56},
+            {"year": 2022, "quarter": 4, "netFlow": 57},
+            {"year": 2023, "quarter": 1, "netFlow": 55},
+            {"year": 2023, "quarter": 2, "netFlow": 45},
+            {"year": 2023, "quarter": 3, "netFlow": 32},
+            {"year": 2023, "quarter": 4, "netFlow": 63},
+            {"year": 2024, "quarter": 1, "netFlow": 49},
+            {"year": 2024, "quarter": 2, "netFlow": 66},
+            {"year": 2024, "quarter": 3, "netFlow": 95}
+          ]
+        },
+        "layer": [
+          {
+            "mark": {"type": "bar", "color": "#1D548E"},
+            "encoding": {
+              "x": {
+                "field": "year",
+                "type": "ordinal",
+                "axis": {"title": "Year", "labelAngle": 0}
+              },
+              "y": {
+                "field": "netFlow",
+                "type": "quantitative",
+                "axis": {
+                  "title": "Net Flow ($bn)",
+                  "titleFontSize": 12,
+                  "grid": true,
+                  "gridColor": "#e0e0e0",
+                  "gridWidth": 1
+                }
+              },
+              "xOffset": {"field": "quarter"},
+              "tooltip": [
+                {"field": "year", "type": "ordinal", "title": "Year"},
+                {"field": "quarter", "type": "ordinal", "title": "Quarter"},
+                {"field": "netFlow", "type": "quantitative", "title": "Net Flow ($bn)"}
+              ]
+            }
+          }
+        ],
+        "config": {
+          "view": {"stroke": null},
+          "axis": {"grid": false},
+          "background": "#FFF0E4"
+        }
+      };
+
+      // Embed the visualization in the container with id 'vis'
+      vegaEmbed('#vis', vlSpec).catch(console.error);
+    </script>
+
+</body>
+</html>
