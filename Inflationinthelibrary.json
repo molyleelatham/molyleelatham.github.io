@@ -1,0 +1,88 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "How Price Rises are Hitting People in the Arts and Social Science's Library",
+      "font": "Segoe UI",
+      "fontSize": 17,
+      "subtitle": ["Exploring how prices have changed for my friends' favourite items | Data Source: Richard Davies.", ""],
+      "subtitleFontStyle": "italic",
+      "subtitleFontSize": 15,
+      "subtitleColor": "white",
+      "anchor": "start",
+      "color": "white"
+    },
+    "config": {"view": {"stroke": null}},
+    "height": 500,
+    "width": 500,
+    "padding": 1,
+    "background": "#171717",
+    "data": {
+      "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/friends_bundle_price_data.csv"
+    },
+    "layer": [
+      {
+        "mark": "line",
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "temporal",
+            "title": null,
+            "axis": {
+              "grid": false,
+              "labelColor": "white",
+              "labelFontSize": 12,
+              "tickColor": "white",
+              "tickSize": 8
+            }
+          },
+          "y": {
+            "field": "Median_Price",
+            "type": "quantitative",
+            "title": null,
+            "axis": {
+              "labelExpr": "'£' + format(datum.value, ',.2f')",
+              "labelColor": "white",
+              "labelFontSize": 12,
+              "tickColor": "white",
+              "gridColor": "#444444",
+              "gridWidth": 0.5,
+              "tickCount": 10
+            },
+            "scale": {
+              "domain": [0, 4],
+              "nice": false
+            }
+          },
+          "color": {
+            "field": "Category",
+            "type": "nominal",
+            "title": "Goods",
+            "scale": {
+              "domain": ["Chocolate", "Baked Beans", "Sandwich", "Chicken", "Apples"],
+              "range": ["#fbb4ae", "#b3cde3", "#ccebc5", "#decbe4", "#fed9a6"]
+            },
+            "legend": {
+              "labelColor": "white",
+              "titleColor": "white",
+              "labelFontSize": 12,
+              "titleFontSize": 14,
+              "symbolType": "circle",
+              "orient": "top-left"
+            }
+          },
+          "tooltip": [{"field": "Median_Price", "title": "Median Price (£)"}]
+        }
+      },
+      {
+        "mark": {"type": "text", "align": "left", "dx": 5},
+        "encoding": {
+          "x": {"field": "year", "type": "temporal"},
+          "y": {"field": "Median_Price", "type": "quantitative"},
+          "text": {"field": "Category", "type": "nominal"},
+          "color": {"field": "Category", "type": "nominal"}
+        },
+        "transform": [{"filter": "datum.year === 1704067200000"}]
+      }
+    ]
+  }
+  

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html> 
+<head>    
+    <link rel="stylesheet" type="text/css" href="portfolio.css">
+    <title>My Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <style>
+        #chartGrid {
+            display: flex;
+        }
+        .chart-container {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .chart-container figure {
+            flex: 1;
+            min-width: 0;
+        }
+      
+        
+    </style>
+</head>
+
+<body> 
+    <div class="glow-effect"></div>
+
+    <nav>
+        <div class="logo">Moly Leelatham</div>
+        <div class="nav-links">
+            <a href="landingpage.html">Home</a>
+            <a href="https://www.linkedin.com/in/moly-leelatham-a2161920b/">LinkedIn</a>
+            <a href="https://github.com/molyleelatham">GitHub</a>
+            <a href="coursework.html">Project</a>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <h3 class="small">
+            This page acts as your portfolio of charts. You can use it as a good starting point to display your work but make sure to customise it to make it your own, or even start from scratch.  
+        </h3>
+
+        <section>
+            <div class="chart-description">
+                <h2>CC1: Hosting and Displaying</h2>
+                <p>
+                   Taken charts from the <a href="https://rdeconomist.github.io/library">chart library </a>
+                </p>
+            </div>
+            <div class="chart-container">
+                <figure id="Location1_1"></figure>
+                <figure id="Location1"></figure>
+            </div>
+        </section>
+
+    
+
+        <section>
+            <div class="chart-description">
+                <h2>CC2: Creating Your Own Visualisation</h2>
+                <p>
+                   Graph made from EconomicsObservatory
+                </p>
+            </div>
+            <div class="chart-container">
+            <figure id="Location3"></figure>
+            <figure id="Location4"></figure>
+        </div>
+        </section>
+
+        
+        <section>
+            <div class="chart-description">
+                <h2>CC3:Debating the Gender Pay Gap 1997-2023</h2>
+                <p> 
+                   *TODO: add discussion  My graph supporting the gender pay gap discussion at the Festival of Economics: Dimensions of Inequalities. The graph looks at the gender pay gap between different types of employment. This graph supports the argument that the UK still has inequalities that are decreasing over time.
+                </p>
+            </div>
+            <figure id="Location5"></figure>
+            <p><strong>Data Sources:</strong></p>
+            <ul>
+                <li>ONS (2023). <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/annualsurveyofhoursandearningsashegenderpaygaptables">Annual Survey of Hours and Earnings</a></li>
+                <li>Festival of Economics, Bristol (2024): Dimensions of Inequalities</li>
+            </ul>
+        
+        </section>
+
+        <section>
+            <div class="chart-description">
+                <h2>CC3: Gender Pay Growth</h2>
+                <p>
+                    My graph exploring the growth of annual income separated by gender. During the talk, Richard explored the narrative of annual income growth amongst men but neglected to make the comparison against women's annual income growth. Women's annual income on average out performed on growth. However if we were to look at this critically, the gender pay gap is still prevalent. In order to mitigate this women's annual income must grow substantially more.
+                </p>
+            </div>
+            <figure id="Location6"></figure>
+            <p><strong>Data Sources:</strong></p>
+            <ul>
+                <li>ONS (2023). <a href="https://www-statista-com.bris.idm.oclc.org/statistics/801915/annual-earning-growth-in-the-uk-by-gender/">Annual growth in median annual earnings for full-time employees in the United Kingdom from 2000 to 2023, by gender</a></li>
+                <li>Festival of Economics, Bristol (2024): Dimensions of Inequalities</li>
+            </ul>
+        
+        </section>
+
+        <section>
+            <div class="chart-description">
+                <h2>CC4: Replication of a Financial Times Graph</h2>
+                <p>
+                    I have replicated a graph from an article from the Financial Times, Falling rates and growing confidence in US economy drive a bond revival. I manually traced the data using their graph. I added axis titles and tool tip to increase clarity to the data being presented.
+                </p>
+            </div>
+            <img src="https://github.com/molyleelatham/molyleelatham.github.io/blob/main/CC4%20Financial%20Times%20Bonds%20Graph.png?raw=true" 
+                     alt="FinancialTimes" 
+                     width="700" 
+                     style="margin-bottom: 20px;">
+            <figure id="Location7"></figure>
+            <p><strong>References:</strong></p>
+            <ul>
+                <li><a href="https://www.ft.com/content/bd1b2dd2-1c20-4af2-b60c-7be0834e5cf6">Falling rates and growing confidence in US economy drive a bond revival, Financial Times (2024)</a></li>
+                
+            </ul>
+        </section>
+
+        <section>
+            <div class="chart-description">
+                <h2>CC5: Scraping S&P 500 Returns from wikipedia</h2>
+                <p>A graph scraped from wikipedia on the different returns on the S&P500</p>
+            </div>
+            <div style="display: flex; justify-content: center; width: 100%;">
+                <figure id="Location8" style="width: 100%; max-width: 1300px;"></figure>
+            </div>
+            <p><strong>Data Sources:</strong></p>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/S%26P_500">Time series data</a></li>
+                <li><a href="https://colab.research.google.com/drive/1hfNylWmEA5Fk7fRgkJVVwS3qZ13PtGbv?usp=sharing">CC5ScrapingS&P500.ipynb</a></li>
+                <li><a href="https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/sp500_returns_long.csv">sp500_returns_long.csv</a></li>
+            </ul>
+         </section>
+
+        <section>
+            <div class="chart-description">
+                <h2>CC6: Stock Price Charts</h2>
+                <p>
+                    Using AlphaVantage API to build a loop dashboard to download time series (unadjusted) closing stock prices for 9 stocks in the S&P 500
+                </p>
+                <select id="stockSelector">
+                    <option value="AAPLDailyClosing">AAPL</option>
+                    <option value="GOOGLDailyClosing">GOOGL</option>
+                    <option value="MSFTDailyClosing">MSFT</option>
+                    <option value="NKEDailyClosing">NKE</option>
+                    <option value="METADailyClosing">META</option>
+                    <option value="NVDADailyClosing">NVDA</option>
+                    <option value="JPMDailyClosing">JPM</option>
+                    <option value="LLYDailyClosing">LLY</option>
+                    <option value="TSLADailyClosing">TSLA</option>
+                </select>
+            </div>
+            <figure id="Location9"></figure>
+            <p><strong>Data Sources:</strong></p>
+            <ul>
+                <li> <a href="https://www.alphavantage.co/documentation/#daily">Alpha Vantage API</a></li>
+                <li><a href="https://colab.research.google.com/drive/1u54ZNG56NyJcN8p9yk2tgHODQeOSMvy2?usp=sharing">LoopsAPITimeSeriesDailyCW.ipynb</a></li>
+                <li><a href="https://colab.research.google.com/drive/1M1ZbmqwEVe9cNWNcBjihZPQM8ihEoE6V?usp=sharing">CleaningLoopsAPITimeSeriesDailyCW.ipynb</a></li>
+            </ul>
+        </section>
+    </div>
+   
+    <section>
+        <div class="chart-description">
+            <h2>CC7: Maps</h2>
+            <p>
+               Map of thailand. Map 1 shocases all the provinces in Thailand. Map 2 showcases the population in each province in Thailand, </a>
+            </p>
+        </div>
+        <div class="chart-container">
+            <figure id="Location10"></figure>
+            <figure id="Location11"></figure>
+        </div>
+    </section>
+    <section>
+        <div class="chart-description">
+            <h2>CC8: Advanced Analytics: Correlation and Histogram</h2>
+            <p>
+I wanted to explore the relationship between VIX, Volatility Indicator Index (S&P500) with the Fear and Greed Index (CNN) which explores market sentiment.</p><p> A higher VIX (Volatility Index) 
+means that the market is expected to be more volatile in the future. </p><p>Fear and Greed Assigning a reading to the market of 50 as neutral, 0 to 49 as fear, and 51 to 100 as greed. 
+</p>
+        </div>
+        <img src="https://github.com/molyleelatham/molyleelatham.github.io/blob/main/CorrelationVIXandFearGreed.png?raw=true"
+             alt="FinancialTimes" 
+             width="900" 
+             style="margin-bottom: 10px;">
+        <div class="side-by-side-images">
+            <img src="https://github.com/molyleelatham/molyleelatham.github.io/blob/main/VIXHistogram.png?raw=true"
+                 alt="FinancialTimes" 
+                 width="500" 
+                 style="margin-bottom: 20px;">
+            <img src="https://github.com/molyleelatham/molyleelatham.github.io/blob/main/FearGreedHistogram.png?raw=true"
+                 alt="FinancialTimes" 
+                 width="500" 
+                 style="margin-bottom: 20px;">    
+        </div>
+        <p><strong>References:</strong></p>
+        <ul>
+            <li><a href="https://www.cboe.com/tradable_products/vix/vix_historical_data/">Historical Data for Cboe VIX® Index </a></li>
+            <li><a href="https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/VIX_History.csv">VIX_History.csv </a></li>
+            <li><a href="https://raw.githubusercontent.com/whit3rabbit/fear-greed-data/refs/heads/main/fear-greed-2011-2023.csv">fear-greed-2011-2023.csv</a></li>
+            <li><a href="https://colab.research.google.com/drive/1xXeS4ybyMF0N2P6O4gQVme8WyAYGsmxo?usp=sharing">CC8&10 AA and ML.ipynb</a></li>
+
+        </ul>
+    </section>
+    <section>
+        <div class="chart-description">
+            <h2>CC9: Big Data</h2>
+            <p>
+Left Chart: looked at what goods my friends would buy and wanted to explore how prices effected them over time.</p><p> Right Chart: Price of Takeaway Coffee by Reigon in the UK over time     </p>
+        </div>
+        <div class="chart-container">
+            <figure id="Location12"></figure>
+            <figure id="Location13"></figure>
+        </div>
+        <p><strong>Data Sources:</strong></p>
+            <ul>
+                <li> <a href="https://richarddavies.io/prices/">Richard Davies Prices Data</a></li>
+                <li><a href="https://colab.research.google.com/drive/1e_sDsbVvTv-TcjcXuVre-aBuMQAmOIKE?usp=sharing">CC9:BigData.ipynb</a></li>
+            </ul>
+    </section>
+    <section>
+        <div class="chart-description">
+            <h2>CC10: Machine Learning: Clusters and Random Forest</h2>
+            <p>
+                <strong>Hypothesis:</strong> "Market sentiment (Fear & Greed) and volatility (VIX) jointly predict returns, with distinct patterns emerging across bullish, bearish, and neutral market clusters."
+            </p>
+            <p>
+                <strong>Clustering Results:</strong>
+                <ul>
+                    <li><strong>C0: Bullish:</strong> High greed, low volatility, high returns.</li>
+                    <li><strong>C2: Bearish:</strong> High fear, high volatility, negative returns.</li>
+                    <li><strong>Neutral:</strong> Moderate sentiment, moderate volatility, transitional conditions.</li>
+                </ul>
+            </p>
+            <p>
+                <strong>Random Forest Results:</strong>
+                <ul>
+                    <li>Mean Squared Error (MSE): <strong>0.0177</strong></li>
+                    <li>R-squared (R²): <strong>0.0824</strong></li>
+                    <li><strong>Feature Importances:</strong></li>
+                    <ul>
+                        <li>Fear & Greed: <strong>0.3478</strong></li>
+                        <li>VIX Close: <strong>0.6522</strong></li>
+                    </ul>
+                    <li>Volatility (VIX) plays a larger role in predicting returns than sentiment (Fear & Greed).</li>
+                </ul>
+            </p>
+        </div>
+        <div class="side-by-side-images">
+            <img src="https://github.com/molyleelatham/molyleelatham.github.io/blob/main/VIX_FearGreed_Returns_Cluster.png?raw=true"
+                 alt="FinancialTimes" 
+                 width="500" 
+                 style="margin-bottom: 20px;">
+            <img src="https://github.com/molyleelatham/molyleelatham.github.io/blob/main/RandomForestRegression.png?raw=true"
+                 alt="FinancialTimes" 
+                 width="500" 
+                 style="margin-bottom: 20px;">    
+        </div>
+        <p><strong>References:</strong></p>
+        <ul>
+            <li><a href="https://www.cboe.com/tradable_products/vix/vix_historical_data/">Historical Data for Cboe VIX® Index </a></li>
+            <li><a href="https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/VIX_History.csv">VIX_History.csv </a></li>
+            <li><a href="https://raw.githubusercontent.com/whit3rabbit/fear-greed-data/refs/heads/main/fear-greed-2011-2023.csv">fear-greed-2011-2023.csv</a></li>
+            <li><a href="https://colab.research.google.com/drive/1xXeS4ybyMF0N2P6O4gQVme8WyAYGsmxo?usp=sharing">CC8&10 AA and ML.ipynb</a></li>
+            <li><a href="https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/sp500_returns_long.csv">sp500_returns_long.csv</a></li>
+
+        </ul>
+    </section>
+</div>
+    <script>
+        // Embedding the first chart
+        let figure_1_spec = "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/refs/heads/main/charts/library/chartLine7.json";
+        vegaEmbed('#Location1', figure_1_spec);
+        let figure_1_1_spec = "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/refs/heads/main/charts/library/chartLine5.json";
+        vegaEmbed('#Location1_1', figure_1_1_spec);
+    
+        // Embedding the second chart
+        let figure_2_spec = "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/charts/ukMacro/BoE_liabilities.json";
+        vegaEmbed('#Location2', figure_2_spec);
+    
+        // Embedding the third chart
+        let figure_3_spec = "wk2_chart1.json"
+        vegaEmbed('#Location3', figure_3_spec);
+
+        let figure_4_spec = "wk2_chart2.json"
+        vegaEmbed('#Location4', figure_4_spec); 
+
+        let figure_5_spec = "wk3_genderpaygap.json"
+        vegaEmbed('#Location5', figure_5_spec); 
+
+        let figure_6_spec = "wk3_genderpaygrowth.json"
+        vegaEmbed('#Location6', figure_6_spec); 
+
+        let figure_7_spec = "wk5_chart.json"
+        vegaEmbed('#Location7', figure_7_spec); 
+
+        let figure_8_spec = "sp500returns.json"
+        vegaEmbed('#Location8', figure_8_spec); 
+
+        let figure_9_spec = null;
+        document.getElementById('stockSelector').addEventListener('change', function() {
+            const selectedStock = this.value;
+            figure_9_spec = `${selectedStock}.json`;
+            vegaEmbed('#Location9', figure_9_spec);
+        });
+        let figure_10_spec = "thailandchart1.json";
+        vegaEmbed('#Location10', figure_10_spec);
+        let figure_11_spec = "thailandchart2.json";
+        vegaEmbed('#Location11', figure_11_spec);
+
+        let figure_12_spec = "Inflationinthelibrary.json";
+        vegaEmbed('#Location12', figure_12_spec);
+        let figure_13_spec = "takeawaycoffeeUK.json";
+        vegaEmbed('#Location13', figure_13_spec);
+
+
+        document.getElementById('stockSelector').dispatchEvent(new Event('change'));
+    </script>
+</body>
+</html>

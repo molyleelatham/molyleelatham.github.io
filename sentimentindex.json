@@ -1,0 +1,85 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Sentiment Index Over Time",
+      "color": "#ffffff",
+      "fontSize": 20,
+      "font": "Inter"
+    },
+    "width": 800,
+    "height": 400,
+    "data": {
+      "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/cleaned_sentiment_data.csv"
+    },
+    "background": "#171929",
+    "layer": [
+      {
+        "mark": {
+          "type": "rule",
+          "color": "#5353532a",
+          "strokeWidth": 1,
+          "opacity": 0.08
+        },
+        "encoding": {
+          "y": {"datum": 0}
+        }
+      },
+      {
+        "mark": {
+          "type": "line",
+          "point": true,
+          "color": "#00000",
+          "strokeWidth": 2,
+          "point": {
+            "filled": true,
+            "fill": "#ffff",
+            "size": 50
+          }
+        },
+        "encoding": {
+          "x": {
+            "field": "date",
+            "type": "temporal",
+            "title": "Date",
+            "axis": {
+              "labelAngle": -45,
+              "labelColor": "#ffffff",
+              "titleColor": "#ffffff",
+              "gridColor": "#4e526434",
+              "tickColor": "#ffffff",
+              "domainColor": "#ffffff",
+              "titleFontSize": 13,
+            }
+          },
+          "y": {
+            "field": "SENT",
+            "type": "quantitative",
+            "title": "Sentiment Value",
+            
+            "axis": {
+              "labelColor": "#ffffff",
+              "titleColor": "#ffffff",
+              "gridColor": "#f5f5f534",
+              "tickColor": "#ffffff",
+              "domainColor": "#ffffff",
+              "titleFontSize": 13,
+            }
+          },
+          "tooltip": [
+            {"field": "date", "type": "temporal", "title": "Date"},
+            {"field": "SENT", "type": "quantitative", "title": "Sentiment", "format": ".2f"}
+          ]
+        }
+      }
+    ],
+    "config": {
+      "view": {
+        "stroke": "transparent"
+      },
+      "font": "Inter",
+      "axis": {
+        "labelFont": "Inter",
+        "titleFont": "Inter"
+      }
+    }
+  }

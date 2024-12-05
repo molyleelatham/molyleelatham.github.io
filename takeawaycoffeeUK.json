@@ -1,0 +1,86 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "The Cost of Takeaway Coffee",
+      "anchor": "start",
+      "subtitle": ["Median prices of 'TAKE-AWAY COFFEE' | Source: Davies (2021)"],
+      "font": "Segoe UI",
+      "fontSize": 20,
+      "fontWeight":"normal",
+      "subtitleFont": "Segoe UI",
+      "subtitleFontSize": 14,
+      "subtitleFontWeight": "lighter",
+      "subtitleColor": "white",
+      "color": "#dddddd"
+    },
+    "width": 500,
+    "height": 500,
+    "background": "#171717",
+    "data": {
+      "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/takeaway_coffee_prices_by_region.csv"
+    },
+    "params": [
+      {
+        "name": "year",
+        "value": 2024,
+        "bind": {
+          "input": "range",
+          "min": 2001,
+          "max": 2024,
+          "step": 1,
+          "name": "Year:"
+        }
+      }
+    ],
+    "transform": [
+      {
+        "lookup": "id",
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/datasets/advanced/nuts1.json",
+            "format": {"type": "json", "property": "features"}
+          },
+          "key": "properties.id",
+          "fields": ["type", "properties", "geometry"]
+        }
+      },
+      {"filter": "datum.year == year"}
+    ],
+    "encoding": {
+      "color": {
+        "field": "price",
+        "type": "quantitative",
+        "scale": {"scheme": "blues", "reverse": false},
+        "legend": {
+          "title": null,
+          "labelFont": "Segoe UI",
+          "labelFontSize": 12,
+          "labelColor": "#ffffff",
+          "labelFontWeight": "normal",
+          "labelExpr": "'£'+datum.label",
+          "orient": "top-right",
+          "legendX": 0,
+          "legendY": 10,
+          "direction": "vertical",
+          "gradientLength": 250
+        }
+      }
+    },
+    "projection": {
+      "type": "naturalEarth1"
+    },
+    "mark": {
+      "type": "geoshape",
+      "stroke": "#aaaaaa",
+      "strokeWidth": 0.3,
+      "tooltip": {
+        "expr": "(datum.properties.NUTS_NAME)+' - £' + format(datum.price,'.3r')"
+      }
+    },
+    "config": {
+      "view": {
+        "stroke": null
+      }
+    }
+  }
+  

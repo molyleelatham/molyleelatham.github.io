@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <link rel="stylesheet" href="stock_test.css">
+    <title>Stock Sentiment Viewer</title>
+</head>
+<body>
+    <div class="grid-background"></div>
+    <div class="container">
+        <nav>
+            <div class="logo">ECON20008</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="https://www.linkedin.com/in/moly-leelatham-a2161920b/">LinkedIn</a>
+                <a href="https://github.com/molyleelatham">GitHub</a>
+                <a href="portfolio.html">Portfolio</a>
+            </div>
+        </nav>
+
+        <main>
+            <section>
+                <img src="https://github.com/molyleelatham/molyleelatham.github.io/blob/main/CorrelationVIXandFearGreed.png?raw=true"
+                     alt="Correlation VIX and Fear Greed" 
+                     width="900" 
+                     style="margin-bottom: 10px;">
+                
+                <div class="side-by-side-images" style="display: flex; justify-content: center; gap: 20px;">
+                    <img src="https://github.com/molyleelatham/molyleelatham.github.io/blob/main/VIXHistogram.png?raw=true"
+                         alt="VIX Histogram" 
+                         width="500" 
+                         style="margin-bottom: 20px;">
+                    <img src="https://github.com/molyleelatham/molyleelatham.github.io/blob/main/FearGreedHistogram.png?raw=true"
+                         alt="Fear Greed Histogram" 
+                         width="500" 
+                         style="margin-bottom: 20px;">
+                </div>
+            </section>
+            <h1>Stock Sentiment Viewer</h1>
+            <p class="description">Analyze market sentiment through news coverage</p>
+
+            <div class="sentiment-analysis">
+                <div class="input-container">
+                    <input type="text" id="tickerInput" placeholder="Enter ticker symbol (e.g., AAPL)" class="stock-input"/>
+                    <button onclick="fetchNews()" class="stock-button">Get News</button>
+                </div>
+                
+                <figure id="sentimentChart" class="chart-container"></figure>
+                <div id="newsGrid" class="news-grid"></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        async function fetchNews() {
+            const ticker = document.getElementById('tickerInput').value.trim();
+            if (!ticker) {
+                alert('Please enter a ticker symbol.');
+                return;
+            }
+
+            const url = `https://fcz6wnx5dgnocnhfvyy4h23cxe0kkklx.lambda-url.eu-west-2.on.aws?ticker=${ticker}`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Failed to fetch data.');
+
+                const data = await response.json();
+                const news = JSON.parse(data.news);
+                populateNews(news);
+
+                if (news.some(article => article.overall_sentiment_score !== undefined)) {
+                    const spec = getSentimentSpec(news);
+                    vegaEmbed("#sentimentChart", spec, {
+                        theme: 'dark',
+                        background: 'transparent',
+                        config: {
+                            axis: {
+                                labelColor: 'var(--text-secondary)',
+                                titleColor: 'var(--text-secondary)'
+                            }
+                        }
+                    });
+                } else {
+                    document.getElementById('sentimentChart').innerHTML = "<p>No sentiment data available for this ticker.</p>";
+                }
+            } catch (error) {
+                console.error('Error fetching news:', error);
+                alert('Failed to fetch news. Please try again later.');
+            }
+        }
+
+        function getSentimentSpec(news) {
+            return {
+       "data": {
+        "values": news
+    },
+    "mark": {"type": "bar", "color": "#3B82F6"},
+    "encoding": {
+        "x": {
+            "field": "title",
+            "type": "nominal",
+            "axis": {
+                "labelAngle": -45,
+                "title": "Article Title",
+                "titleColor": "#ffffff",
+                "labelColor": "#ffffff",
+                "labelFont": "Segoe UI",
+                "labelFontSize": 12,
+                "titleFont": "Segoe UI",
+                "titleFontSize": 16,
+                "titleFontWeight": "bold"
+            }
+        },
+        "y": {
+            "field": "overall_sentiment_score",
+            "type": "quantitative",
+            "axis": {
+                "title": "Sentiment Score",
+                "titleColor": "#ffffff",
+                "labelColor": "#ffffff",
+                "labelFont": "Segoe UI",
+                "labelFontSize": 18,  // Enlarged y-axis labels
+                "labelFontWeight": "bold",
+                "gridColor": "rgba(255, 255, 255, 0.1)",
+                "titleFont": "Segoe UI",
+                "titleFontSize": 20,  // Enlarged y-axis title
+                "titleFontWeight": "light"
+            }
+        },
+        "tooltip": [
+            {"field": "title", "type": "nominal", "title": "Title"},
+            {"field": "overall_sentiment_score", "type": "quantitative", "title": "Sentiment Score"}
+        ]
+    },
+    "width": 1000,
+    "height": 400,
+    "title": {
+        "text": "Stock Sentiment Analysis",
+        "subtitle": "Sentiment Score above 0 is considered positive, below 0 is considered negative",
+        "font": "Segoe UI",
+        "fontSize": 24,
+        "fontWeight": "normal",
+        "subtitleFont": "Segoe UI",
+        "subtitleFontSize": 16,
+        "subtitleFontWeight": "light",
+        "color": "#ffffff"
+    },
+    "background": "transparent",
+    "config": {
+        "axis": {
+            "domainColor": "#ffffff",
+            "tickColor": "#ffffff"
+        },
+        "view": {
+            "stroke": "transparent"
+                    }
+                }
+            };
+        }
+
+        function populateNews(news) {
+            const newsGrid = document.getElementById('newsGrid');
+            newsGrid.innerHTML = '';
+
+            if (!Array.isArray(news) || news.length === 0) {
+                newsGrid.innerHTML = '<p>No news articles found.</p>';
+                return;
+            }
+
+            news.forEach((article) => {
+                const newsItem = document.createElement('div');
+                newsItem.className = 'news-item';
+
+                const sentimentScore = article.overall_sentiment_score !== undefined
+                    ? article.overall_sentiment_score.toFixed(2)
+                    : 'N/A';
+
+                newsItem.innerHTML = `
+                    <h3>${article.title}</h3>
+                    <p><strong>Published:</strong> ${new Date(article.time_published).toLocaleString()}</p>
+                    <p><strong>Authors:</strong> ${article.authors.join(', ')}</p>
+                    <p class="summary">${article.summary}</p>
+                    <p><strong>Source:</strong> ${article.source}</p>
+                    <p><strong>Sentiment Score:</strong> ${sentimentScore}</p>
+                `;
+
+                newsGrid.appendChild(newsItem);
+            });
+        }
+    </script>
+</body>
+</html>

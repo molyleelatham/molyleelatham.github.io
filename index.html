@@ -1,142 +1,29 @@
 <!DOCTYPE html>
-<html> 
-<head>    
-    <link rel="stylesheet" type="text/css" href="testing.css">
-    <title>My Portfolio</title>
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-    <style>
-        #chartGrid {
-            display: flex;
-        }
-    </style>
+<html>
+<head>
+    <title>Welcome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="welcome.css">
 </head>
-
-<body> 
-    <!-- Add the glow effect -->
-    <div class="glow-effect"></div>
-
-    <!-- New navigation structure -->
-    <nav>
-        <div class="logo">Moly Leelatham</div>
-        <div class="nav-links">
-            <a href="landingpage.html">Home</a>
-            <a href="https://www.linkedin.com/in/moly-leelatham-a2161920b/">LinkedIn</a>
-            <a href="https://github.com/molyleelatham">GitHub</a>
-            <a href="">Project</a>
+<body>
+    <div class="welcome-container">
+        <div class="welcome-text">
+            <span class="letter">W</span>
+            <span class="letter">e</span>
+            <span class="letter">l</span>
+            <span class="letter">c</span>
+            <span class="letter">o</span>
+            <span class="letter">m</span>
+            <span class="letter">e</span>
+            <span class="letter">:)</span>
         </div>
-    </nav>
-
-    <!-- Main content container -->
-    <div class="content-container">
-        <h3 class="small">
-            This page acts as your portfolio of charts. You can use it as a good starting point to display your work but make sure to customise it to make it your own, or even start from scratch.  
-        </h3>
-
-        <!-- Chart sections -->
-        <section>
-            <div class="chart-description">
-                <h2>Section 1: A basic chart</h2>
-                <p>
-                    We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-                    As a first example, we're using a basic chart from our repo.
-                </p>
-            </div>
-            <figure id="Location1"></figure>
-        </section>
-
-        <section>
-            <div class="chart-description">
-                <h2>Section 2: A basic chart</h2>
-                <p>
-                    We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-                    As a first example, we're using a basic chart from our repo.
-                </p>
-            </div>
-            <figure id="Location2"></figure>
-        </section>
-
-        <section>
-            <div class="chart-description">
-                <h2>Section 3: GDP per capita, Vietnam</h2>
-                <p>
-                    Week 3 Portfolio task, graph made from EconomicsObservatory
-                </p>
-            </div>
-            <figure id="Location3"></figure>
-        </section>
-
-        <section>
-            <div class="chart-description">
-                <h2>Section 4: Ukraine employment rate over time</h2>
-                <p>
-                    Week 3 Portfolio task, graph made from EconomicsObservatory
-                </p>
-            </div>
-            <figure id="Location4"></figure>
-        </section>
-
-        <section>
-            <div class="chart-description">
-                <h2>Section 5: Gender Pay Gap 1997-2023</h2>
-                <p>
-                    My graph supporting the gender pay gap discussion at the Festival of Economics: Dimensions of Inequalities. The graph looks at the gender pay gap between different types of employment. This graph supports the argument that the UK still has inequalities that are decreasing over time.
-                </p>
-            </div>
-            <figure id="Location5"></figure>
-        </section>
-
-        <section>
-            <div class="chart-description">
-                <h2>Section 6: Gender Pay Growth</h2>
-                <p>
-                    My graph exploring the growth of annual income separated by gender. During the talk, Richard explored the narrative of annual income growth amongst men but neglected to make the comparison against women's annual income growth. Women's annual income on average out performed on growth. However if we were to look at this critically, the gender pay gap is still prevalent. In order to mitigate this women's annual income must grow substantially more.
-                </p>
-            </div>
-            <figure id="Location6"></figure>
-        </section>
-
-        <section>
-            <div class="chart-description">
-                <h2>Section 7: Remaking a graph</h2>
-                <p>
-                    My graph exploring the growth of annual income separated by gender...
-                </p>
-                <img src="https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3A276c1fe9-a400-42dd-bcaa-321647bf7076?source=next-article&fit=scale-down&quality=highest&width=700&dpr=2" 
-                     alt="Annual Income Growth Graph" 
-                     width="700" 
-                     style="margin-bottom: 20px;">
-            </div>
-            <figure id="Location7"></figure>
-        </section>
     </div>
 
     <script>
-        // Embedding the first chart
-        let figure_1_spec = "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/2/s2_chart2.json";
-        vegaEmbed('#Location1', figure_1_spec);
-    
-        // Embedding the second chart
-        let figure_2_spec = "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/charts/ukMacro/BoE_liabilities.json";
-        vegaEmbed('#Location2', figure_2_spec);
-    
-        // Embedding the third chart
-        let figure_3_spec = "wk2_chart1.json"
-        vegaEmbed('#Location3', figure_3_spec);
-
-        let figure_4_spec = "wk2_chart2.json"
-        vegaEmbed('#Location4', figure_4_spec); 
-
-        let figure_5_spec = "wk3_genderpaygap.json"
-        vegaEmbed('#Location5', figure_5_spec); 
-
-        let figure_6_spec = "wk3_genderpaygrowth.json"
-        vegaEmbed('#Location6', figure_6_spec); 
-
-        let figure_7_spec = "wk5_chart.json"
-        vegaEmbed('#Location7', figure_7_spec); 
+       
+        setTimeout(() => {
+            window.location.href = 'landingpage.html';
+        }, 4000); 
     </script>
 </body>
 </html>

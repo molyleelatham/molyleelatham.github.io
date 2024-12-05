@@ -1,105 +1,129 @@
-
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {
-      "text": "Investors are pouring into bonds",
-      "subtitle": "US fixed-income ETFs saw record quarterly inflows",
-      "fontSize": 16,
-      "subtitleFontSize": 13,
-      "anchor": "start"
-    },
-    "width": 700,
-    "height": 400,
-    "data": {
-      "values": [
-        {"year": 2015, "quarter": 1, "netFlow": 22},
-        {"year": 2015, "quarter": 2, "netFlow": 2},
-        {"year": 2015, "quarter": 3, "netFlow": 23},
-        {"year": 2015, "quarter": 4, "netFlow": 17},
-        {"year": 2016, "quarter": 1, "netFlow": 34},
-        {"year": 2016, "quarter": 2, "netFlow": 16},
-        {"year": 2016, "quarter": 3, "netFlow": 29},
-        {"year": 2016, "quarter": 4, "netFlow": 14},
-        {"year": 2017, "quarter": 1, "netFlow": 35},
-        {"year": 2017, "quarter": 2, "netFlow": 35},
-        {"year": 2017, "quarter": 3, "netFlow": 32},
-        {"year": 2017, "quarter": 4, "netFlow": 24},
-        {"year": 2018, "quarter": 1, "netFlow": 17},
-        {"year": 2018, "quarter": 2, "netFlow": 30},
-        {"year": 2018, "quarter": 3, "netFlow": 26},
-        {"year": 2018, "quarter": 4, "netFlow": 27},
-        {"year": 2019, "quarter": 1, "netFlow": 35},
-        {"year": 2019, "quarter": 2, "netFlow": 41},
-        {"year": 2019, "quarter": 3, "netFlow": 37},
-        {"year": 2019, "quarter": 4, "netFlow": 40},
-        {"year": 2020, "quarter": 1, "netFlow": 14},
-        {"year": 2020, "quarter": 2, "netFlow": 83},
-        {"year": 2020, "quarter": 3, "netFlow": 55},
-        {"year": 2020, "quarter": 4, "netFlow": 51},
-        {"year": 2021, "quarter": 1, "netFlow": 38},
-        {"year": 2021, "quarter": 2, "netFlow": 58},
-        {"year": 2021, "quarter": 3, "netFlow": 48},
-        {"year": 2021, "quarter": 4, "netFlow": 48},
-        {"year": 2022, "quarter": 1, "netFlow": 20},
-        {"year": 2022, "quarter": 2, "netFlow": 38},
-        {"year": 2022, "quarter": 3, "netFlow": 56},
-        {"year": 2022, "quarter": 4, "netFlow": 57},
-        {"year": 2023, "quarter": 1, "netFlow": 55},
-        {"year": 2023, "quarter": 2, "netFlow": 45},
-        {"year": 2023, "quarter": 3, "netFlow": 32},
-        {"year": 2023, "quarter": 4, "netFlow": 63},
-        {"year": 2024, "quarter": 1, "netFlow": 49},
-        {"year": 2024, "quarter": 2, "netFlow": 66},
-        {"year": 2024, "quarter": 3, "netFlow": 95}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Investors are pouring into bonds",
+    "subtitle": "US fixed-income ETFs saw record quarterly inflows",
+    "fontSize": 24, 
+    "subtitleFontSize": 16, 
+    "font": "Segoe UI",
+    "subtitleFont": "Segoe UI",
+    "fontWeight": "normal", 
+    "subtitleFontWeight": "normal", 
+    "anchor": "start"
+  },
+  "width": 700,
+  "height": 400,
+  "data": {
+    "values": [
+      {"year": 2015, "quarter": 1, "netFlow": 22},
+      {"year": 2015, "quarter": 2, "netFlow": 2},
+      {"year": 2015, "quarter": 3, "netFlow": 23},
+      {"year": 2015, "quarter": 4, "netFlow": 17},
+      {"year": 2016, "quarter": 1, "netFlow": 34},
+      {"year": 2016, "quarter": 2, "netFlow": 16},
+      {"year": 2016, "quarter": 3, "netFlow": 29},
+      {"year": 2016, "quarter": 4, "netFlow": 14},
+      {"year": 2017, "quarter": 1, "netFlow": 35},
+      {"year": 2017, "quarter": 2, "netFlow": 35},
+      {"year": 2017, "quarter": 3, "netFlow": 32},
+      {"year": 2017, "quarter": 4, "netFlow": 24},
+      {"year": 2018, "quarter": 1, "netFlow": 17},
+      {"year": 2018, "quarter": 2, "netFlow": 30},
+      {"year": 2018, "quarter": 3, "netFlow": 26},
+      {"year": 2018, "quarter": 4, "netFlow": 27},
+      {"year": 2019, "quarter": 1, "netFlow": 35},
+      {"year": 2019, "quarter": 2, "netFlow": 41},
+      {"year": 2019, "quarter": 3, "netFlow": 37},
+      {"year": 2019, "quarter": 4, "netFlow": 40},
+      {"year": 2020, "quarter": 1, "netFlow": 14},
+      {"year": 2020, "quarter": 2, "netFlow": 83},
+      {"year": 2020, "quarter": 3, "netFlow": 55},
+      {"year": 2020, "quarter": 4, "netFlow": 51},
+      {"year": 2021, "quarter": 1, "netFlow": 38},
+      {"year": 2021, "quarter": 2, "netFlow": 58},
+      {"year": 2021, "quarter": 3, "netFlow": 48},
+      {"year": 2021, "quarter": 4, "netFlow": 48},
+      {"year": 2022, "quarter": 1, "netFlow": 20},
+      {"year": 2022, "quarter": 2, "netFlow": 38},
+      {"year": 2022, "quarter": 3, "netFlow": 56},
+      {"year": 2022, "quarter": 4, "netFlow": 57},
+      {"year": 2023, "quarter": 1, "netFlow": 55},
+      {"year": 2023, "quarter": 2, "netFlow": 45},
+      {"year": 2023, "quarter": 3, "netFlow": 32},
+      {"year": 2023, "quarter": 4, "netFlow": 63},
+      {"year": 2024, "quarter": 1, "netFlow": 49},
+      {"year": 2024, "quarter": 2, "netFlow": 66},
+      {"year": 2024, "quarter": 3, "netFlow": 95}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {"type": "rect", "color": "gray", "opacity": 0.2},
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "x2": {
+          "field": "year",
+          "offset": 1
+        }
+      },
+      "transform": [
+        {
+          "filter": "year(datum.year) == 2020 || year(datum.year) == 2024"
+        }
       ]
     },
-    "layer": [
-      {
-        "mark": {"type": "rect", "color": "gray", "opacity": 0.2},
-        "encoding": {
-          "x": {
-            "field": "year",
-            "type": "ordinal"
-          },
-          "x2": {
-            "field": "year",
-            "offset": 1
+    {
+      "mark": {
+        "type": "bar",
+        "color": "#1D548E",
+        "width": 15
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "axis": {
+            "title": "Year",
+            "labelAngle": 0,
+            "titleFontSize": 16,
+            "titleFont": "Segoe UI",
+            "titleFontWeight": "normal",
+            "labelFont": "Segoe UI",
+            "labelFontSize": 12, 
+            "labelFontWeight": "normal"
           }
         },
-        "transform": [
-          {
-            "filter": "year(datum.year) == 2020 || year(datum.year) == 2024"
+        "y": {
+          "field": "netFlow",
+          "type": "quantitative",
+          "axis": {
+            "title": "Net Flow ($bn)",
+            "titleFontSize": 16,
+            "titleFont": "Segoe UI",
+            "titleFontWeight": "normal",
+            "labelFont": "Segoe UI",
+            "labelFontSize": 11, 
+            "labelFontWeight": "normal",
+            "grid": true,
+            "gridColor": "#e0e0e0",
+            "gridWidth": 1
           }
+        },
+        "xOffset": {"field": "quarter", "band": 0.3},
+        "tooltip": [
+          {"field": "year", "type": "ordinal", "title": "Year"},
+          {"field": "quarter", "type": "ordinal", "title": "Quarter"},
+          {"field": "netFlow", "type": "quantitative", "title": "Net Flow ($bn)"}
         ]
-      },
-      {
-        "mark": {"type": "bar", "color": "#1D548E"},
-        "encoding": {
-          "x": {
-            "field": "year",
-            "type": "ordinal",
-            "axis": {"title": "Year", "labelAngle": 0}
-          },
-          "y": {
-            "field": "netFlow",
-            "type": "quantitative",
-            "axis": {"title": "net flow ($bn)", "titleFontSize": 12, 
-          "grid": true,  
-          "gridColor": "#e0e0e0", 
-          "gridWidth": 1 }
-          },
-          "xOffset": {"field": "quarter"},
-          "tooltip": [
-            {"field": "year", "type": "ordinal", "title": "Year"},
-            {"field": "quarter", "type": "ordinal", "title": "Quarter"},
-            {"field": "netFlow", "type": "quantitative", "title": "Net Flow ($bn)"}
-          ]
-        }
       }
-    ],
-    "config": {
-      "view": {"stroke": null},
-      "axis": {"grid": false},
-      "background": "#FFF0E4"
     }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"grid": false},
+    "background": "#FFF0E4"
   }
+}

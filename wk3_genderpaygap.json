@@ -1,28 +1,92 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Annual gender pay gap in the UK (1997-2023) across different employment types.",
-    "title": "Annual gender pay gap in the UK (1997-2023) by employment type",
-    "data": {
-      "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/gender-pay-gap-in-the-uk-1997-2023.csv"
-    },
-    "width": 600,
-    "height": 400,
-    "transform": [
-      {"fold": ["All-employees", "Full-time", "Part-time"], "as": ["Employment Type", "Value"]}
-    ],
-    "mark": "line",
-    "encoding": {
-      "x": {"field": "Year", "type": "temporal", "title": "Year"},
-      "y": {
-        "field": "Value",
-        "type": "quantitative",
-        "title": "Gender Pay Gap (%)"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Annual gender pay gap in the UK (1997-2023) across different employment types.",
+  "title": {
+    "text": "Annual gender pay gap in the UK (1997-2023) by employment type",
+    "fontSize": 17,
+    "font": "Segoe UI",
+    "color": "#dddddd",
+    "fontWeight": "normal"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/gender-pay-gap-in-the-uk-1997-2023.csv"
+  },
+  "width": 600,
+  "height": 400,
+  "background": "#171717",
+  "transform": [
+    {
+      "fold": ["All-employees", "Full-time", "Part-time"],
+      "as": ["Employment Type", "Value"]
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#c9c8c813",
+        "strokeWidth": 1,
+        "opacity": 0.3
       },
-      "color": {
-        "field": "Employment Type",
-        "type": "nominal",
-        "title": "Employment Type"
+      "encoding": {
+        "y": {
+          "datum": 0, 
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "point": true
+      },
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "temporal",
+          "title": "Year",
+          "axis": {
+            "labelFontSize": 14,
+            "labelFont": "Segoe UI",
+            "labelColor": "#bbbbbb",
+            "titleFont": "Segoe UI",
+            "titleFontSize": 16,
+            "titleFontWeight": "normal",
+            "titleColor": "#bbbbbb"
+          }
+        },
+        "y": {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Gender Pay Gap (%)",
+          "axis": {
+            "labelFontSize": 14,
+            "labelFont": "Segoe UI",
+            "labelColor": "#bbbbbb",
+            "titleFont": "Segoe UI",
+            "titleFontSize": 16,
+            "titleFontWeight": "normal",
+            "titleColor": "#bbbbbb"
+          }
+        },
+        "color": {
+          "field": "Employment Type",
+          "type": "nominal",
+          "title": "Employment Type",
+          "legend": {
+            "titleFont": "Segoe UI",
+            "titleFontSize": 14,
+            "titleFontWeight": "normal",
+            "titleColor": "#bbbbbb",
+            "labelFont": "Segoe UI",
+            "labelFontSize": 12,
+            "labelColor": "#bbbbbb"
+          },
+          "scale": {
+            "range": ["#4575b4", "#91bfdb", "#fee08b"]
+          }
+        }
       }
     }
-  }
-  
+  ]
+}

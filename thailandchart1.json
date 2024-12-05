@@ -1,41 +1,70 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Thailand Provinces Map",
-    "width": 600,
-    "height": 800,
-    "data": {
-      "url": "https://raw.githubusercontent.com/apisit/thailand.json/refs/heads/master/thailand.json",
-      "format": {
-        "type": "json",
-        "property": "features" 
-      }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Map 1: Thailand Map with Provinces",
+    "fontSize": 20,
+    "font": "Segoe UI",
+    "color": "#dddddd",
+    "anchor": "center",
+    "dy": 50,
+    "fontWeight": "normal"
+  },
+  "width": 400,
+  "height": 700,
+  "background": "#171717",
+  "data": {
+    "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/thailandmapfromsimplemaps.json",
+    "format": {
+      "type": "json",
+      "property": "features"
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.properties.id",
+      "as": "province_id"
     },
-    "projection": {
-      "type": "mercator",
-      "center": [101, 13],
-      "scale": 2400
-    },
-    "mark": {
-      "type": "geoshape",
-      "stroke": "white",
-      "strokeWidth": 1
-    },
-    "encoding": {
-      "color": {
-        "field": "properties.name",
-        "type": "nominal",
-        "scale": {
-          "scheme": "blues"
-        },
-        "legend": null
+    {
+      "calculate": "datum.properties.source",
+      "as": "data_source"
+    }
+  ],
+  "projection": {
+    "type": "mercator",
+    "center": [101, 13],
+    "scale": 2100
+  },
+  "mark": {
+    "type": "geoshape",
+    "stroke": "#bbbbbb",
+    "strokeWidth": 0.5
+  },
+  "encoding": {
+    "color": {
+      "field": "properties.name",
+      "type": "nominal",
+      "scale": {
+        "scheme": "blues"
       },
-      "tooltip": [
-        {"field": "properties.name", "type": "nominal", "title": "Province"}
-      ]
+      "legend": null
     },
-    "config": {
-      "view": {
-        "stroke": null
+    "tooltip": [
+      {"field": "properties.name", "type": "nominal", "title": "Province"}
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "style": {
+      "tooltip": {
+        "font": "Segoe UI",
+        "fontSize": 12,
+        "background": "#333333",
+        "color": "#ffffff",
+        "stroke": "#bbbbbb",
+        "strokeWidth": 0.5
       }
     }
   }
+}

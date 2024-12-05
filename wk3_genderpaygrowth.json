@@ -1,20 +1,92 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Annual growth in earnings for full-time employees in the UK (2000-2023) by gender.",
-    "title": "Annual growth in earnings for full-time employees in the UK (2000-2023) by gender",
-    "data": {
-      "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/annual-growth-in-earnings-for-full-time-employees-in-the-uk-2000-2023-by-gender.csv"
-    },
-    "width": 600,
-    "height": 400,
-    "transform": [
-      {"fold": ["Male", "Female"], "as": ["Gender", "Percent"]}
-    ],
-    "mark": "line",
-    "encoding": {
-      "x": {"field": "Year", "type": "temporal"},
-      "y": {"field": "Percent", "type": "quantitative"},
-      "color": {"field": "Gender", "type": "nominal"}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Annual growth in earnings for full-time employees in the UK (2000-2023) by gender.",
+  "title": {
+    "text": "Annual growth in earnings for full-time employees in the UK (2000-2023) by gender",
+    "fontSize": 17,
+    "font": "Segoe UI",
+    "color": "#dddddd",
+    "fontWeight": "normal"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/annual-growth-in-earnings-for-full-time-employees-in-the-uk-2000-2023-by-gender.csv"
+  },
+  "width": 600,
+  "height": 400,
+  "background": "#171717",
+  "transform": [
+    {
+      "fold": ["Male", "Female"],
+      "as": ["Gender", "Percent"]
     }
-  }
-  
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#ffffff",
+        "strokeWidth": 1.2,
+        "strokeOpacity": 0.04
+      },
+      "encoding": {
+        "y": {
+          "datum": 0,
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "point": true
+      },
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "temporal",
+          "title": "Year",
+          "axis": {
+            "labelFontSize": 14,
+            "labelFont": "Segoe UI",
+            "labelColor": "#bbbbbb",
+            "titleFont": "Segoe UI",
+            "titleFontSize": 16,
+            "titleFontWeight": "normal",
+            "titleColor": "#bbbbbb"
+          }
+        },
+        "y": {
+          "field": "Percent",
+          "type": "quantitative",
+          "title": "Annual Growth (%)",
+          "axis": {
+            "labelFontSize": 14,
+            "labelFont": "Segoe UI",
+            "labelColor": "#bbbbbb",
+            "titleFont": "Segoe UI",
+            "titleFontSize": 16,
+            "titleFontWeight": "normal",
+            "titleColor": "#bbbbbb"
+          }
+        },
+        "color": {
+          "field": "Gender",
+          "type": "nominal",
+          "title": "Gender",
+          "legend": {
+            "titleFont": "Segoe UI",
+            "titleFontSize": 14,
+            "titleFontWeight": "normal",
+            "titleColor": "#bbbbbb",
+            "labelFont": "Segoe UI",
+            "labelFontSize": 12,
+            "labelColor": "#bbbbbb"
+          },
+          "scale": {
+            "range": ["#4575b4", "#d73027"]
+          }
+        }
+      }
+    }
+  ]
+}

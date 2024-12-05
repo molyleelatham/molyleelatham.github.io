@@ -1,0 +1,80 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "TSLA Daily Closing Prices",
+    "subtitle": "A visualization of Tesla's daily closing prices over time",
+    "anchor": "start",
+    "fontSize": 20,
+    "subtitleFontSize": 14,
+    "font": "Segoe UI",
+    "color": "#dddddd",
+    "subtitleFont": "Segoe UI",
+    "subtitleFontWeight": "normal",
+    "subtitleColor": "#bbbbbb"
+  },
+  "description": "Line chart showing Tesla's daily closing prices.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/TSLA_vegalite.json",
+    "format": {"type": "json"}
+  },
+  "width": 800,
+  "height": 400,
+  "background": "#171717",
+  "mark": {
+    "type": "line",
+    "color": "#1f77b4",
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "Date",
+      "type": "temporal",
+      "title": "Date",
+      "axis": {
+        "labelFontSize": 14,
+        "labelFont": "Segoe UI",
+        "labelColor": "#bbbbbb",
+        "titleFont": "Segoe UI",
+        "titleFontSize": 16,
+        "titleFontWeight": "normal",
+        "titleColor": "#bbbbbb",
+        "gridColor": "#bbbbbb",
+        "gridOpacity": 0.1
+      }
+    },
+    "y": {
+      "field": "Close",
+      "type": "quantitative",
+      "title": "Closing Price ($)",
+      "scale": {
+        "zero": false
+      },
+      "axis": {
+        "labelFontSize": 14,
+        "labelFont": "Segoe UI",
+        "labelColor": "#bbbbbb",
+        "titleFont": "Segoe UI",
+        "titleFontSize": 16,
+        "titleFontWeight": "normal",
+        "titleColor": "#bbbbbb",
+        "gridColor": "#bbbbbb",
+        "gridOpacity": 0.1
+      }
+    },
+    "tooltip": [
+      {"field": "Date", "type": "temporal", "title": "Date"},
+      {"field": "Close", "type": "quantitative", "title": "Closing Price ($)", "format": ".2f"}
+    ]
+  },
+  "config": {
+    "legend": {
+      "labelFont": "Segoe UI",
+      "labelFontSize": 14,
+      "labelColor": "#bbbbbb",
+      "titleFont": "Segoe UI",
+      "titleFontSize": 16,
+      "titleColor": "#dddddd",
+      "titleFontWeight": "normal"
+    }
+  }
+}

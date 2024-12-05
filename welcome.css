@@ -4,9 +4,9 @@
 :root {
     --background-primary: #0a0a0a;
     --text-primary: #ffffff;
-    --animation-color-1: #ff3366;
-    --animation-color-2: #33ccff;
-    --animation-color-3: #33ff99;
+    --animation-color-1: #C7BBBB;
+    --animation-color-2: #767070;
+    --animation-color-3: #252525;
 }
 
 * {

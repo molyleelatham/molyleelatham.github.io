@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Coursework - Market Analysis</title>
+   <link rel="stylesheet" href="coursework.css">
+   <script src="https://cdn.tailwindcss.com"></script>
+   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/recharts/umd/Recharts.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+   <div class="content-container">
+       <div class="glow-effect"></div>
+       <nav>
+           <div class="logo">ECON20008</div>
+           <div class="nav-links">
+               <a href="index.html">Home</a>
+               <a href="https://www.linkedin.com/in/moly-leelatham-a2161920b/">LinkedIn</a>
+               <a href="https://github.com/molyleelatham">GitHub</a>
+               <a href="portfolio.html">Portfolio</a>
+           </div>
+       </nav>
+       
+       <h1 class="big">Market Analysis Tools</h1>
+       <h3 class="small">Analyze market sentiment and trends for different stocks</h3>
+   
+       <section>
+           <div class="chart-description">
+               <h2>Market Sentiment Analysis</h2>
+               <p>Enter a stock ticker to analyze its market sentiment through news coverage</p>
+           </div>
+           <div id="sentiment-root"></div>
+       </section>
+   </div>
+
+   <script>
+       const getSentimentPython = async (ticker) => {
+           try {
+               const response = await fetch('/get_sentiment', {
+                   method: 'POST',
+                   headers: { 'Content-Type': 'application/json' },
+                   body: JSON.stringify({ ticker })
+               });
+               return response.json();
+           } catch (error) {
+               console.error('Error:', error);
+               throw error;
+           }
+       };
+
+       const MarketSentiment = () => {
+           const [ticker, setTicker] = React.useState('');
+           const [loading, setLoading] = React.useState(false);
+           const [data, setData] = React.useState(null);
+           const [error, setError] = React.useState('');
+
+           const fetchSentiment = async () => {
+               if (!ticker) {
+                   setError('Please enter a ticker symbol');
+                   return;
+               }
+               
+               setLoading(true);
+               setError('');
+               
+               try {
+                   const data = await getSentimentPython(ticker);
+                   
+                   if (data.feed && data.feed.length > 0) {
+                       const processedData = data.feed.map(article => ({
+                           title: article.title,
+                           sentiment: parseFloat(article.overall_sentiment_score),
+                           label: article.overall_sentiment_label,
+                           time: new Date(article.time_published).toLocaleDateString()
+                       }));
+                       setData(processedData);
+                   } else {
+                       setError('No data found for this ticker');
+                   }
+               } catch (err) {
+                   setError('Error fetching data. Please try again.');
+               } finally {
+                   setLoading(false);
+               }
+           };
+
+           return React.createElement('div', { className: 'stock-selector-container bg-[#202023] rounded-lg p-6' },
+               React.createElement('div', { className: 'flex gap-4 mb-6' },
+                   React.createElement('input', {
+                       type: 'text',
+                       placeholder: 'Enter ticker symbol (e.g., AAPL)',
+                       value: ticker,
+                       onChange: (e) => setTicker(e.target.value.toUpperCase()),
+                       className: 'w-64 px-4 py-2 border rounded bg-[#2d2d2d] text-white border-[#404040]'
+                   }),
+                   React.createElement('button', {
+                       onClick: fetchSentiment,
+                       disabled: loading,
+                       className: 'px-4 py-2 bg-[#3B82F6] text-white rounded hover:bg-[#2563EB] disabled:bg-gray-600'
+                   }, loading ? 'Loading...' : 'Analyze')
+               ),
+               error && React.createElement('div', { className: 'text-red-500 mb-4' }, error),
+               data && React.createElement('div', { className: 'text-white' },
+                   React.createElement('h3', { className: 'text-xl font-semibold mb-4' }, 'Sentiment Analysis Results'),
+                   React.createElement('div', { className: 'h-64 mb-6' },
+                       React.createElement(Recharts.ResponsiveContainer, { width: '100%', height: '100%' },
+                           React.createElement(Recharts.LineChart, { data: data },
+                               React.createElement(Recharts.CartesianGrid, { strokeDasharray: '3 3', stroke: '#404040' }),
+                               React.createElement(Recharts.XAxis, { dataKey: 'time', stroke: '#fff' }),
+                               React.createElement(Recharts.YAxis, { domain: [-1, 1], stroke: '#fff' }),
+                               React.createElement(Recharts.Tooltip),
+                               React.createElement(Recharts.Line, {
+                                   type: 'monotone',
+                                   dataKey: 'sentiment',
+                                   stroke: '#3B82F6',
+                                   name: 'Sentiment Score'
+                               })
+                           )
+                       )
+                   ),
+                   React.createElement('div', { className: 'space-y-4' },
+                       data.map((item, index) =>
+                           React.createElement('div', { key: index, className: 'p-4 border border-[#404040] rounded bg-[#2d2d2d]' },
+                               React.createElement('h4', { className: 'font-medium' }, item.title),
+                               React.createElement('div', { className: 'flex gap-4 mt-2 text-sm text-gray-400' },
+                                   React.createElement('span', null, `Date: ${item.time}`),
+                                   React.createElement('span', null, `Sentiment: ${item.label}`),
+                                   React.createElement('span', null, `Score: ${item.sentiment.toFixed(2)}`)
+                               )
+                           )
+                       )
+                   )
+               )
+           );
+       };
+
+       const root = ReactDOM.createRoot(document.getElementById('sentiment-root'));
+       root.render(React.createElement(MarketSentiment));
+   </script>
+</body>
+</html>

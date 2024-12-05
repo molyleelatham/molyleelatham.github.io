@@ -1,256 +1,132 @@
 :root {
-    --background: #0a0a0a;
+    --background: #000000;
     --text: #ffffff;
-    --accent: #a8a8a8;  
-    --accent-glow: rgba(168, 168, 168, 0.2);  
-    --surface: #171717;
-    --surface-glow: rgba(255, 255, 255, 0.1);
-}
-
-* {
+    --accent: #ffffff;
+    --surface: rgba(17, 17, 17, 0.9);
+    --border: rgba(255, 255, 255, 0.1);
+   }
+   
+   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
+   }
+   
+   body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--background);
+    background: var(--background);
     color: var(--text);
     min-height: 100vh;
-    overflow: hidden;
-}
-
-.container {
+    position: relative;
+   }
+   
+   .container {
     max-width: 1440px;
     margin: 0 auto;
     padding: 2rem;
-    position: relative;
-}
-
-/* Navigation */
-nav {
+   }
+   
+   nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background: rgba(23, 23, 23, 0.7);
+    padding: 1.5rem 2rem;
+    background: var(--surface);
     backdrop-filter: blur(10px);
-    border-radius: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
     margin-bottom: 4rem;
-}
-
-.logo {
-    font-weight: 600;
-    font-size: 1.2rem;
-}
-
-.nav-links {
+   }
+   
+   .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+   }
+   
+   .nav-links {
     display: flex;
-    gap: 1rem;
-}
-
-.nav-links a {
+    gap: 1.5rem;
+   }
+   
+   .nav-links a {
     color: var(--text);
     text-decoration: none;
-    background: var(--surface);
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 20px var(--surface-glow);
-}
-
-.nav-links a:hover {
-    box-shadow: 0 0 30px var(--surface-glow);
-    transform: translateY(-1px);
-}
-
-.sign-up {
-    background: var(--surface);
+    font-size: 1.2rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+   }
+   
+   .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.1);
+   }
+   
+   .sign-up {
+    background: transparent;
     color: var(--text);
-    border: none;
+    border: 1px solid var(--border);
     padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
+    border-radius: 6px;
     cursor: pointer;
     font-family: inherit;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 20px var(--surface-glow);
-}
-
-.sign-up:hover {
-    box-shadow: 0 0 30px var(--surface-glow);
-    transform: translateY(-1px);
-}
-
-/* Glow Effect */
-.glow-effect {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 600px;
-    background: var(--accent);
-    filter: blur(150px);
-    opacity: 0.1;
-}
-
-/* Hero Section */
-.hero {
+    font-size: 1rem;
+    transition: all 0.2s ease;
+   }
+   
+   .sign-up:hover {
+    background: rgba(255, 255, 255, 0.1);
+   }
+   
+   .hero {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 60vh;
-    position: relative;
-    z-index: 1;
-}
-
-h1 {
-    font-size: 5rem;
-    font-weight: 700;
-    line-height: 1.2;
+    min-height: 70vh;
+   }
+   
+   h1 {
+    font-size: 4.5rem;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -2.5px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    letter-spacing: -2px;
-}
-
-h1 span:first-child {
-    font-size: 5rem;
-}
-
-h1 span:nth-child(2) {
-    font-size: 5rem;
-    margin: -1rem 0;
-}
-
-h1 span:last-child {
-    font-size: 5rem;
-}
-
-.text-white {
-    color: var(--text);
-}
-
-.text-accent {
-    color: var(--accent);
-    text-shadow: 0 0 30px var(--accent-glow);
-}
-
-/* CTA Buttons */
-.cta-buttons {
+   }
+   
+   h1 span {
+    display: block;
+   }
+   
+   .text-accent {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 3rem;
+    margin-top: 1rem;
+   }
+   
+   .grid-background {
     position: fixed;
-    display: flex;
-    gap: 2rem;
-    z-index: 2;
-}
-
-.view-samples {
-    position: absolute;
-    left: 15%;
-    bottom: 15%;
-}
-
-.try-free {
-    position: absolute;
-    right: 15%;
-    bottom: 15%;
-}
-
-.cta-buttons button {
-    background: var(--surface);
-    color: var(--text);
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 20px var(--surface-glow);
-    text-transform: lowercase;
-}
-
-.cta-buttons button:hover {
-    box-shadow: 0 0 30px var(--accent-glow);
-    transform: translateY(-2px);
-}
-
-/* Decorative Elements */
-.decorative-elements {
-    position: absolute;
-    width: 100%;
-    height: 100%;
     top: 0;
     left: 0;
-    pointer-events: none;
-    opacity: 0.5;
-}
-
-.star {
-    position: absolute;
-    color: var(--accent);
-    opacity: 0.3;
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    h1 {
-        font-size: 6rem;
-    }
-
-    h1 span:first-child {
-        font-size: 6rem;
-    }
-
-    h1 span:nth-child(2) {
-        font-size: 4rem;
-    }
-
-    h1 span:last-child {
-        font-size: 6rem;
-    }
-}
-
-@media (max-width: 768px) {
-    nav {
-        padding: 1rem;
-    }
-
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.05;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+   }
+   
+   @media (max-width: 768px) {
     .nav-links {
-        display: none;
+      display: none;
     }
-
+    
     h1 {
-        font-size: 4rem;
+      font-size: 3rem;
     }
-
-    h1 span:first-child {
-        font-size: 4rem;
+    
+    .text-accent {
+      font-size: 2rem;
     }
-
-    h1 span:nth-child(2) {
-        font-size: 3rem;
-        margin: -0.5rem 0;
-    }
-
-    h1 span:last-child {
-        font-size: 4rem;
-    }
-
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-        position: static;
-        margin-top: 2rem;
-        gap: 1rem;
-    }
-
-    .view-samples, .try-free {
-        position: static;
-    }
-}
+   }

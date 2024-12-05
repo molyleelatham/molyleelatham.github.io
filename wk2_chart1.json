@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "GDP Per Capita",
+    "text": "Vietnam GDP Per Capita",
     "anchor": "start",
     "subtitle": "Current VND (thousands) | GSO through ECO API",
     "fontSize": "14",
@@ -9,8 +9,8 @@
     "color": "#000000",
     "subtitleColor": "#000000"
   },
-  "height": "250",
-  "width": "250",
+  "height": "350",
+  "width": "350",
   "autosize": {
     "type": "fit",
     "contains": "padding"

@@ -1,0 +1,102 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "S&P 500 Returns",
+    "subtitle": "1961-2023",
+    "fontSize": 20,
+    "font": "Segoe UI",
+    "anchor": "start",
+    "color": "#dddddd",
+    "fontWeight": "normal",
+    "subtitleFontSize": 14,
+    "subtitleFont": "Segoe UI",
+    "subtitleFontWeight": "normal",
+    "subtitleColor": "#bbbbbb"
+  },
+  "width": 900,
+  "height": 500,
+  "background": "#171717",
+  "data": {"url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/sp500_returns_long.csv"},
+  "params": [{
+    "name": "metric_selection",
+    "value": "All",
+    "bind": {
+      "input": "select",
+      "options": [
+        "All",
+        "Change inIndex",
+        "TotalAnnual Return,includingdividends",
+        "Annualized Return over"
+      ],
+      "labels": [
+        "All Metrics",
+        "Index Change",
+        "Total Return (with dividends)",
+        "Annualized Return"
+      ],
+      "name": "Select Metric"
+    }
+  }],
+ "transform": [
+ {"filter": "datum.Year != 'High' && datum.Year != 'Low' && datum.Year != 'Median' && datum.Year != '5 years'"},
+ {"filter": "datum.Value != ''"},
+ {"calculate": "parseFloat(datum.Value)", "as": "NumericValue"},
+ {
+   "calculate": "datum.Metric == 'Change inIndex' ? 'Change in Index' : datum.Metric == 'TotalAnnual Return,includingdividends' ? 'Total Annual Return' : datum.Metric == 'Annualized Return over' ? 'Annualized Return' : datum.Metric == 'Value of $1.00invested onJanuary 1, 1970' ? 'Investment Value' : datum.Metric",
+   "as": "Return Metric"
+ },
+ {"filter": "metric_selection === 'All' || datum.Metric === metric_selection"}
+],
+  "mark": {
+    "type": "line",
+    "point": true,
+    "color": "#bbbbbb"
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {
+        "labelAngle": 270,
+        "labelFontSize": 12,
+        "labelFont": "Segoe UI",
+        "labelColor": "#bbbbbb",
+        "titleFont": "Segoe UI",
+        "titleFontSize": 17,
+        "titleColor": "#bbbbbb"
+      }
+    },
+    "y": {
+      "field": "NumericValue",
+      "type": "quantitative",
+      "title": "Return (%)",
+      "axis": {
+        "labelFontSize": 16,
+        "labelFont": "Segoe UI",
+        "labelColor": "#bbbbbb",
+        "titleFont": "Segoe UI",
+        "titleFontSize": 17,
+        "titleColor": "#bbbbbb"
+      }
+    },
+    "color": {
+      "field": "Return Metric",
+      "type": "nominal",
+      "legend": {
+        "titleFont": "Segoe UI",
+        "titleFontSize": 16,
+        "labelFont": "Segoe UI",
+        "labelFontSize": 15,
+        "labelColor": "#bbbbbb",
+        "titleColor": "#bbbbbb",
+        "padding":30
+      }
+    },
+    "tooltip": [
+      {"field": "Year", "type": "ordinal"},
+      {"field": "Metric", "type": "nominal"},
+      {"field": "NumericValue", "type": "quantitative", "format": ".2f"}
+    ]
+  }
+}
