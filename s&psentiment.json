@@ -1,0 +1,151 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Sentiment Index and S&P 500 Returns",
+      "fontSize": 22,
+      "color": "#e8e8e8",
+      "anchor": "start",
+      "fontWeight": "normal"
+    },
+    "width": 800,
+    "height": 400,
+    "background": "#171717",
+    "params": [
+      {
+        "name": "metric_selection",
+        "value": "Change inIndex",
+        "bind": {
+          "input": "select",
+          "options": [
+            "None",
+            "Change inIndex",
+            "TotalAnnual Return,includingdividends",
+            "Annualized Return over"
+          ],
+          "labels": [
+            "Sentiment Only",
+            "Index Change",
+            "Total Return (with dividends)",
+            "Annualized Return"
+          ],
+          "name": "Select S&P 500 Metric"
+        }
+      }
+    ],
+    "data": {
+      "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/cleaned_sentiment_data.csv"
+    },
+    "transform": [
+      {
+        "calculate": "time(datum.date)",
+        "as": "parsed_date"
+      },
+      {
+        "calculate": "year(datum.parsed_date)",
+        "as": "year_only"
+      },
+      { "calculate": "toString(datum.year_only)", "as": "YearString" }
+    ],
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/sp500_returns_long.csv"
+        },
+        "transform": [
+          {
+            "filter": "datum.Year != 'High' && datum.Year != 'Low' && datum.Year != 'Median' && datum.Year != '5 years'"
+          },
+          { "filter": "datum.Metric == metric_selection && metric_selection != 'None'" },
+          { "filter": "datum.Value != ''" },
+          { "calculate": "parseFloat(datum.Value)", "as": "NumericValue" },
+          { "calculate": "toString(datum.Year)", "as": "YearString" }
+        ],
+        "mark": {
+          "type": "line",
+          "color": "#ffffff",
+          "strokeWidth": 2
+        },
+        "encoding": {
+          "x": {
+            "field": "YearString",
+            "type": "ordinal",
+            "title": "Year",
+            "axis": {
+              "labelAngle": 270,
+              "labelColor": "#e8e8e8",
+              "titleColor": "#e8e8e8",
+              "gridColor": "#4e526434",
+              "tickColor": "#e8e8e8",
+              "domainColor": "#e8e8e8"
+            }
+          },
+          "y": {
+            "field": "NumericValue",
+            "type": "quantitative",
+            "title": "Returns %",
+            "axis": {
+              "titleColor": "#ffffff",
+              "labelColor": "#ffffff",
+              "domainColor": "#ffffff"
+            }
+          },
+          "tooltip": [
+            { "field": "YearString", "type": "nominal", "title": "Year" },
+            {
+              "field": "NumericValue",
+              "type": "quantitative",
+              "title": { "expr": "metric_selection" },
+              "format": ".2f"
+            }
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "line",
+          "color": "#42A5F5",
+          "strokeWidth": 2
+        },
+        "encoding": {
+          "x": {
+            "field": "YearString",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          "y": {
+            "field": "SENT",
+            "type": "quantitative",
+            "title": "Sentiment Value",
+            "axis": {
+              "titleColor": "#42A5F5",
+              "labelColor": "#42A5F5",
+              "domainColor": "#42A5F5"
+            }
+          },
+          "tooltip": [
+            { "field": "YearString", "type": "ordinal", "title": "Year" },
+            {
+              "field": "SENT",
+              "type": "quantitative",
+              "title": "Sentiment",
+              "format": ".2f"
+            }
+          ]
+        }
+      }
+    ],
+    "resolve": {
+      "scale": { "y": "independent" }
+    },
+    "config": {
+      "view": { "stroke": "transparent" },
+      "font": "Inter",
+      "axis": {
+        "labelFont": "Inter",
+        "titleFont": "Inter",
+        "labelFontSize": 12,
+        "titleFontSize": 14
+      }
+    }
+  }
+  

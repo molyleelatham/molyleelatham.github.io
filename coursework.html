@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <link rel="stylesheet" href="coursework.css">
+    <title>Stock Sentiment Viewer</title>
+</head>
+<body>
+    <div class="grid-background"></div>
+    <div class="container">
+        <nav>
+            <div class="logo">ECON20008</div>
+            <div class="nav-links">
+                <a href="landingpage.html">Home</a>
+                <a href="https://www.linkedin.com/in/moly-leelatham-a2161920b/">LinkedIn</a>
+                <a href="https://github.com/molyleelatham">GitHub</a>
+                <a href="portfolio.html">Portfolio</a>
+            </div>
+        </nav>
+
+        <main>
+            <h1 class="main-title">How does investor sentiment affect financial markets?</h1>
+    <p class="description">This project explores the impact of investor sentiment on financial markets, focusing on the S&P 500. By analyzing sentiment indices and market returns, it aims to better understand the psychological factors driving market behavior. The S&P 500 was selected for its robustness and representation of major companies, though its stability posed a challenge in capturing variability linked to sentiment.
+
+        Data accessibility was another key challenge, as many APIs and datasets required paid access, limiting available resources. Despite these constraints, the project mainly leveraged machine learning and advanced analytics to examine relationships between sentiment and market performance.</p>
+
+            <div class="dropdown">
+                <button class="dropdown-button" onclick="toggleDropdown('chartDropdown1')">
+                    A comparison of S&P 500 Returns & Sentiment Index 
+                </button>
+                <div class="dropdown-content" id="chartDropdown1">
+                    <div class="chart-container">
+                        <h2>Sentiment Index Chart</h2>
+                        <figure id="Location1"></figure>
+                        <p>This chart compares S&P 500 returns with a sentiment index, exploring their potential relationship over time. The data for S&P 500 returns was scraped from Wikipedia using Python in a Colab notebook and combined with sentiment data from another source. Cleaning and integrating these datasets was challenging but provided a foundation for analyzing correlations and relationships between sentiment and market performance.
+
+                            The visualization reveals that sentiment generally has a lagged effect on most return metrics, meaning changes in sentiment take time to impact market performance. However, this lag was less pronounced for annualized returns, where sentiment and returns appear more closely aligned. These findings suggest that while sentiment influences market trends, its effects are complex and depend on the timeframe and metric analyzed.
+                            This initial analysis highlights the potential of sentiment data in understanding market behavior, while also emphasizing the need for advanced techniques to uncover deeper insights.
+
+                            </p>
+                        <p><strong>References:</strong></p>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/S%26P_500">Time series data</a></li>
+            <li><a href="https://colab.research.google.com/drive/1hfNylWmEA5Fk7fRgkJVVwS3qZ13PtGbv?usp=sharing">CC5ScrapingS&P500.ipynb</a></li>
+            <li><a href="https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/sp500_returns_long.csv">sp500_returns_long.csv</a></li>
+            <li><a href="https://people.stern.nyu.edu/jwurgler/data/Investor_Sentiment_Data_v23_POST.xlsx">Baker and Wurgler's Sentiment Index</a></li>
+            <li><a href="https://colab.research.google.com/drive/1-2-YBhlSEmBfeM2YvauOBFrZvyBOg9aH?usp=sharing">SentimentDataCleaner.ipynb</a></li>
+        </ul>
+                    </div>
+                </div>
+            </div>
+            <main>
+                <div class="dropdown">
+                    <button class="dropdown-button" onclick="toggleDropdown('chartDropdown2')">
+                        How do investors feel?  
+                    </button>
+                    <div class="dropdown-content" id="chartDropdown2">
+                        <div class="chart-container">
+                            <h2>American Assiociation of Individual Investors (AAII) Sentiment over Time</h2>
+                            <figure id="Location3"></figure>
+                            <p>This chart visualizes investor sentiment over time using data from the American Association of Individual Investors (AAII). The dataset, which is community-contributed, offers insights into how investors feel—whether bullish, bearish, or neutral—on a weekly basis. My aim was to explore whether there was a consensus among groups of investors and how these sentiments evolved over time.
+
+                                Cleaning this dataset was a significant challenge, as it was messy and required extensive preprocessing to make it suitable for graphing. Despite these hurdles, I transformed the raw data into a clean, structured format, enabling it to be visualized effectively.
+                                
+                                The chart highlights key moments in market history, such as the 2008 financial crisis, where bearish sentiment spiked significantly. However, no single sentiment category dominates over the long term, reflecting the diversity of perspectives within the investor community. The visualization includes an interactive slider, allowing users to explore the dataset at both macro (long-term) and micro (short-term) levels, making it adaptable for analyzing specific periods or trends.
+                                
+                                This time series analysis underscores the importance of tracking collective investor sentiment during different economic conditions. By combining historical trends with interactive exploration, this visualization provides valuable insights into the dynamics of investor psychology across time.</p>
+                            <p><strong>References:</strong></p>
+            <ul>
+            
+                <li><a href="https://www.aaii.com/sentimentsurvey/sent_results">Sentiment Survey Historical Data</a></li>
+                <li><a href="https://colab.research.google.com/drive/1WpcLgROMn_7RrvR4RGN4H3jznbSy0C7y?usp=sharing">AAIISentimentCleaner.ipynb</a></li>
+                <li><a href="https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/main/Cleaned_AAIIsentiment.csv">Cleaned_AAIIsentiment.csv</a></li>
+            </ul>
+                        </div>
+                    </div>
+                </div>
+            
+    
+                <div class="dropdown">
+                    <button class="dropdown-button" onclick="toggleDropdown('chartDropdown4')">
+                        How does Fear & Greed affect Volatility? 
+                    </button>
+                    <div class="dropdown-content" id="chartDropdown4">
+                        <div class="chart-container">
+                            <h2>Scatter Correlation & Regression: VIX and Fear and Greed?</h2>
+                            <figure id="Location2">   </figure>
+                                <img src="https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/CorrelationVIXandFearGreed.png" 
+                                     alt="Correlation between VIX and Fear & Greed" 
+                                     style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0 auto;">
+                         
+                            <p>This chart explores the correlation between the CNN Fear & Greed Index and the VIX, a widely recognized measure of market volatility. The Fear & Greed Index was my chosen dataset for exploring sentiment, ranging from 0 (extreme fear) to 100 (extreme greed). The VIX measures market expectations of future volatility. I aimed to explore the relationship between these metrics. Correlating the data in Colab using Matplotlib showed a correlation coefficient of -0.445, meaning that as fear increased, volatility tended to rise. My initial hypothesis was that heightened fear leads to irrational behavior, resulting in greater market volatility.
+
+                                I also implemented a 30-day rolling correlation to examine how the relationship evolved over time, revealing variations in the strength and direction of the correlation during different market conditions.
+                                
+                                The chart features a scatter plot to illustrate the overall correlation, complemented by a regression line for clarity. Additionally, a time series of the rolling correlation highlights dynamic changes in the relationship, particularly during key economic events.</p>
+                            <p><strong>References:</strong></p>
+                            <ul>
+                                <li><a href="https://www.cboe.com/tradable_products/vix/vix_historical_data/">Historical Data for Cboe VIX® Index </a></li>
+                                <li><a href="https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/VIX_History.csv">VIX_History.csv </a></li>
+                                <li><a href="https://raw.githubusercontent.com/whit3rabbit/fear-greed-data/refs/heads/main/fear-greed-2011-2023.csv">fear-greed-2011-2023.csv</a></li>
+                                <li><a href="https://colab.research.google.com/drive/1xXeS4ybyMF0N2P6O4gQVme8WyAYGsmxo?usp=sharing">CC8&10 AA and ML .ipynb</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                
+
+            <div class="dropdown">
+                <button class="dropdown-button" onclick="toggleDropdown('chartDropdown3')">
+                    Histograms: VIX & Fear and Greed 
+                </button>
+                <div class="dropdown-content" id="chartDropdown3">
+                    <div class="chart-container">
+                        <h2>VIX and Fear & Greed Histograms</h2>
+                        <div class="histogram-grid">
+                            <div class="histogram-item">
+                                <img src="https://github.com/molyleelatham/molyleelatham.github.io/blob/main/VIXHistogram.png?raw=true"
+                                     alt="VIX Histogram" class="dropdown-image">
+                                <p>VIX Histogram: Frequency distribution of VIX values over time.</p>
+                            </div>
+                            <div class="histogram-item">
+                                <img src="https://github.com/molyleelatham/molyleelatham.github.io/blob/main/FearGreedHistogram.png?raw=true"
+                                     alt="Fear Greed Histogram" class="dropdown-image">
+                                <p> While the VIX tends to exhibit extreme values during market turbulence, the Fear & Greed Index displays a more symmetric distribution, capturing the dynamic nature of market sentiment.</p>
+                            
+                            </div>
+                        </div>
+                    </div><p><strong>References:</strong></p>
+                    <ul>
+                        <li><a href="https://www.cboe.com/tradable_products/vix/vix_historical_data/">Historical Data for Cboe VIX® Index </a></li>
+                        <li><a href="https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/VIX_History.csv">VIX_History.csv </a></li>
+                        <li><a href="https://raw.githubusercontent.com/whit3rabbit/fear-greed-data/refs/heads/main/fear-greed-2011-2023.csv">fear-greed-2011-2023.csv</a></li>
+                        <li><a href="https://colab.research.google.com/drive/1xXeS4ybyMF0N2P6O4gQVme8WyAYGsmxo?usp=sharing">CC8&10 AA and ML .ipynb</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropdown-button" onclick="toggleDropdown('chartDropdown6')">
+                    Positive thinking, positive returns? Relationship between Sentiment and Returns 
+                </button>
+                <div class="dropdown-content" id="chartDropdown6">
+                    <div class="chart-container">
+                        <h2>Correlation Sentiment and Returns</h2>
+                        <div class="histogram-grid">
+                            <div class="histogram-item">
+                                <img src="https://github.com/molyleelatham/molyleelatham.github.io/blob/main/AnnualReturnSENT.png?raw=true"
+                                     alt="VIX Histogram" class="dropdown-image">
+                                <p>Correlation and Regression of Sentiment and Annual returns</p>
+                            </div>
+                            <div class="histogram-item">
+                                <img src="https://github.com/molyleelatham/molyleelatham.github.io/blob/main/Sentimentheatmap.png?raw=true"
+                                     alt="Fear Greed Histogram" class="dropdown-image">
+                                <p>Heatmap correlation: Different returns and Sentiment</p>
+                            </div>
+                        </div>
+                        <p>This section explores the relationship between investor sentiment and market returns. The correlation coefficient between sentiment, as measured by the Fear & Greed Index, and market returns was calculated to be 0.34, indicating a weak positive relationship. This suggests that higher sentiment values (indicating greed) are slightly associated with improved market performance, while lower sentiment values (indicating fear) may correspond to weaker returns.
+                            To analyze this further, I used Colab to run the regression and calculate the correlation coefficient through a heatmap visualization. The heatmap allowed me to explore the strength of the relationship across multiple return metrics, providing a clearer picture of how sentiment influences market behavior. I utilized the datasets I had previously cleaned and prepared for this analysis, enabling an efficient and streamlined process. These results provide insights into the subtle yet impactful dynamics between market sentiment and financial performance</p>
+                        
+                        <p><strong>References:</strong></p>
+                        <ul>
+                            <li><a href="https://colab.research.google.com/drive/1pp7KWU3X34QJaoKx8oOxs3SlADVT-P_2?usp=sharing">SENT&Returns.ipynb</a></li>
+                            <li><a href="https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/main/Cleaned_AAIIsentiment.csv">Cleaned_AAIIsentiment.csv</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="dropdown">
+                <button class="dropdown-button" onclick="toggleDropdown('chartDropdown5')">
+                    Clustering relationships: VIX, Returns and Fear and Greed
+                </button>
+                <div class="dropdown-content" id="chartDropdown5">
+                    <div class="chart-container">
+                        <h2>Clustering Analysis: VIX, Returns, and Fear & Greed</h2>
+                        <div class="cluster-grid">
+                            <div class="cluster-item">
+                                <img src="https://github.com/molyleelatham/molyleelatham.github.io/blob/main/VIX_FearGreed_Returns_Cluster.png?raw=true"
+                                     alt="Clustering Relationships" class="dropdown-image"
+                                     style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto;">
+                            </div>
+                            <div class="cluster-item">
+                                <p><strong>Clustering Descriptions:</strong></p>
+                                <ul>
+                                    <li><strong>C0 (Bullish):</strong> High greed, low volatility, high returns.</li>
+                                    <li><strong>C2 (Bearish):</strong> High fear, high volatility, negative returns.</li>
+                                    <li><strong>Neutral:</strong> Moderate sentiment, moderate volatility, transitional conditions.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="description">To understand market conditions, I grouped the indexes—Fear & Greed, VIX, and market returns—using a clustering approach. This process was implemented in Colab with the K-Means algorithm, which identifies distinct groups within the data by minimizing intra-cluster variation. Before applying K-Means, I preprocessed the data by cleaning, normalizing, and scaling the variables to ensure accurate clustering results.
+
+                            The analysis revealed meaningful patterns within the clusters. Cluster 0 represented a "bullish market," characterized by high greed, low volatility, and strong positive returns. On the other hand, Cluster 2 was identified as a "bearish market," marked by high fear, high volatility, and negative returns. A neutral cluster reflected transitional conditions with moderate sentiment and volatility.
+                            
+                            Through the clustering process, I was able to group relationships between sentiment, volatility, and returns under different market conditions. This gave me a perspective on investor behavior, allowing me to transform complex data into a clear understanding of how these factors interact in financial markets.</p> <!-- Placeholder for clustering description -->
+            
+                        <div class="rf-image">
+                            <img src="https://github.com/molyleelatham/molyleelatham.github.io/blob/main/RandomForestRegression.png?raw=true" 
+                                 alt="Random Forest Results" 
+                                 style="width: 100%; max-width: 800px; height: auto; display: block; margin: 20px auto;">
+                        </div>
+                        <div class="rf-results">
+                            <p><strong>Random Forest Results:</strong></p>
+                            <ul>
+                                <li><strong>Mean Squared Error (MSE):</strong> 0.0177</li>
+                                <li><strong>R-squared (R²):</strong> 0.0824</li>
+                                <li><strong>Feature Importances:</strong>
+                                    <ul>
+                                        <li>Fear & Greed: 0.3478</li>
+                                        <li>VIX Close: 0.6522</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p>These results indicate that volatility (VIX) plays a larger role in predicting returns than sentiment (Fear & Greed).</p>
+                        </div>
+                        <p class="description">To analyze this relationship further, I implemented a Random Forest regression model. This algorithm constructs multiple decision trees and combines their predictions to enhance accuracy and robustness. Using scikit-learn in Colab, I processed the data, trained the model, and evaluated its performance.
+
+                            The results indicated that other factors also influence the relationship between sentiment, volatility, and market returns, as reflected by the model's performance metrics. Further analysis of feature importance revealed that the VIX (volatility) was the most significant variable in predicting returns, with a contribution of 0.6522 compared to sentiment as measured by the Fear & Greed Index (0.3478). This finding highlights the dominant role of market volatility in influencing financial outcomes, though sentiment remains a contributing factor.
+                            
+                            Through this process, I was able to gain deeper insights into the dynamics of these variables, providing a foundation for understanding how external factors shape market behavior.</p> <!-- Placeholder for Random Forest description -->
+            
+                        <p><strong>References:</strong></p>
+                        <ul>
+                            <li><a href="https://colab.research.google.com/drive/1xXeS4ybyMF0N2P6O4gQVme8WyAYGsmxo?usp=sharing">CC8&10 AA and ML .ipynb</a></li>
+                            <li><a href="https://colab.research.google.com/drive/1pp7KWU3X34QJaoKx8oOxs3SlADVT-P_2?usp=sharing">SENT&Returns.ipynb</a></li>
+                            <li><a href="https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/main/Cleaned_AAIIsentiment.csv">Cleaned_AAIIsentiment.csv</a></li>
+                            <li><a href="https://www.cboe.com/tradable_products/vix/vix_historical_data/">Historical Data for Cboe VIX® Index </a></li>
+                                <li><a href="https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/VIX_History.csv">VIX_History.csv </a></li>
+                                <li><a href="https://raw.githubusercontent.com/whit3rabbit/fear-greed-data/refs/heads/main/fear-greed-2011-2023.csv">fear-greed-2011-2023.csv</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
+    
+            
+            
+
+            <h1>Stock Sentiment Viewer</h1>
+            <p class="description">Analyse market sentiment through news coverage. I used an <a href="https://www.alphavantage.co/">Alpha Vantage API</a> hosted on an <a href="https://colab.research.google.com/drive/1YBqpvQO3AuGcfYguN9BNB3r2ltIlchbY">AWS server </a> to pull request real time sentiment. Disclaimer: This is not financial advice.It was a massive learning curve for me to use a server and an API, as well as to clean the data into an actionable graph. The process was challenging but extremely rewarding, as it provided valuable insights into how to transform raw data into meaningful visualizations. This tool displays the overall sentiment from news coverage for a specific stock, offering a quick overview of market perception.
+
+                I hope to further develop this into a more robust and versatile tool after this course, incorporating additional data sources and advanced features to improve its usability and accuracy. This project has been a stepping stone in understanding real-time data analysis and its potential applications in financial markets. </p>
+         
+            <div class="sentiment-analysis">
+                <div class="input-container">
+                    <input type="text" id="tickerInput" placeholder="Enter ticker symbol (e.g., AAPL)" class="stock-input"/>
+                    <button onclick="fetchNews()" class="stock-button">Get News</button>
+                </div>
+                <div id="overallSentimentContainer">
+                    Overall Sentiment Score: <span id="sentimentScore">N/A</span>
+                </div>
+
+                <figure id="sentimentChart" class="chart-container"></figure> 
+                <div id="newsGrid" class="news-grid"></div>
+            </div>
+        </main>
+    </div>
+    <script>
+        async function fetchNews() {
+            const ticker = document.getElementById('tickerInput').value.trim();
+            if (!ticker) {
+                alert('Please enter a ticker symbol.');
+                return;
+            }
+
+            const url = `https://fcz6wnx5dgnocnhfvyy4h23cxe0kkklx.lambda-url.eu-west-2.on.aws?ticker=${ticker}`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Failed to fetch data.');
+
+                const data = await response.json();
+                const news = JSON.parse(data.news);
+                populateNews(news);
+
+                if (news.some(article => article.overall_sentiment_score !== undefined)) {
+                    // Calculate and display overall sentiment score
+                    calculateAndDisplayOverallSentiment(news);
+
+                    // Render sentiment chart
+                    const spec = getSentimentSpec(news);
+                    vegaEmbed("#sentimentChart", spec, {
+                        theme: 'dark',
+                        background: 'transparent',
+                        config: {
+                            axis: {
+                                labelColor: 'var(--text-secondary)',
+                                titleColor: 'var(--text-secondary)'
+                            }
+                        }
+                    });
+                } else {
+                    document.getElementById('sentimentChart').innerHTML = "<p>No sentiment data available for this ticker.</p>";
+                    document.getElementById('sentimentScore').textContent = "N/A";
+                }
+            } catch (error) {
+                console.error('Error fetching news:', error);
+                alert('Failed to fetch news. Please try again later.');
+            }
+        }
+
+        function calculateAndDisplayOverallSentiment(news) {
+    const sentimentScores = news
+        .map(article => article.overall_sentiment_score)
+        .filter(score => score !== undefined);
+
+    if (sentimentScores.length > 0) {
+        const overallSentiment = sentimentScores.reduce((a, b) => a + b, 0) / sentimentScores.length;
+        const sentimentStatus = overallSentiment >= 0 ? "Positive" : "Negative"; // Determine sentiment status
+        const sentimentColor = overallSentiment >= 0 ? "#add0a8" : "#d59999"; // Choose color based on status
+
+        // Update the sentiment score and status
+        const sentimentScoreElement = document.getElementById('sentimentScore');
+        sentimentScoreElement.textContent = `${overallSentiment.toFixed(2)} (${sentimentStatus})`;
+        sentimentScoreElement.style.color = sentimentColor; // Change text color
+    } else {
+        // Handle case when no sentiment scores are available
+        const sentimentScoreElement = document.getElementById('sentimentScore');
+        sentimentScoreElement.textContent = "N/A";
+        sentimentScoreElement.style.color = ""; // Reset color
+    }
+}
+
+        function getSentimentSpec(news) {
+            return {
+              "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "values": news
+  },
+  "title": {
+    "text": "Stock Sentiment Analysis",
+    "subtitle": "Sentiment Score above 0 is positive, below 0 is negative",
+    "font": "Segoe UI",
+    "fontSize": 24,
+    "fontWeight": "normal",
+    "subtitleFont": "Segoe UI",
+    "subtitleFontSize": 16,
+    "subtitleFontWeight": "light",
+    "color": "#ffffff",
+    "subtitleColor": "#cccccc"
+  },
+  "width": 1000,
+  "height": 400,
+  "background": "transparent",
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "rgba(255, 255, 255, 0.2)",
+        "strokeDash": [4, 4]
+      },
+      "encoding": {
+        "y": {"datum": 0}
+      }
+    },
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadius": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "title",
+          "type": "nominal",
+          "axis": {
+            "labelAngle": -45,
+            "title": "Article Title",
+            "titleColor": "#ffffff",
+            "labelColor": "#ffffff",
+            "labelFont": "Segoe UI",
+            "labelFontSize": 12,
+            "titleFont": "Segoe UI",
+            "titleFontSize": 16,
+            "titleFontWeight": "bold"
+          }
+        },
+        "y": {
+          "field": "overall_sentiment_score",
+          "type": "quantitative",
+          "axis": {
+            "title": "Sentiment Score",
+            "titleColor": "#ffffff",
+            "labelColor": "#ffffff",
+            "labelFont": "Segoe UI",
+            "labelFontSize": 18,
+            "labelFontWeight": "bold",
+            "gridColor": "rgba(255, 255, 255, 0.1)",
+            "titleFont": "Segoe UI",
+            "titleFontSize": 20,
+            "titleFontWeight": "light"
+          }
+        },
+        "color": {
+          "condition": {
+            "test": "datum.overall_sentiment_score > 0",
+            "value": "#05A547"
+          },
+          "value": "#EF4444"
+        },
+        "tooltip": [
+          {"field": "title", "type": "nominal", "title": "Title"},
+          {"field": "overall_sentiment_score", "type": "quantitative", "title": "Sentiment Score", "format": ".3f"},
+          {"field": "time_published", "type": "temporal", "title": "Date", "format": "%Y-%m-%d"}
+        ]
+      }
+    },
+  
+  ],
+  "config": {
+    "axis": {
+      "domainColor": "#ffffff",
+      "tickColor": "#ffffff"
+    },
+    "view": {
+      "stroke": "transparent"
+                    }
+                }
+            };
+        }
+
+        function populateNews(news) {
+            const newsGrid = document.getElementById('newsGrid');
+            newsGrid.innerHTML = '';
+
+            if (!Array.isArray(news) || news.length === 0) {
+                newsGrid.innerHTML = '<p>No news articles found.</p>';
+                return;
+            }
+
+            news.forEach((article) => {
+                const newsItem = document.createElement('div');
+                newsItem.className = 'news-item';
+
+                const sentimentScore = article.overall_sentiment_score !== undefined
+                    ? article.overall_sentiment_score.toFixed(2)
+                    : 'N/A';
+
+                newsItem.innerHTML = `
+                    <h3>${article.title}</h3>
+                    <p><strong>Published:</strong> ${new Date(article.time_published).toLocaleString()}</p>
+                    <p><strong>Authors:</strong> ${article.authors.join(', ')}</p>
+                    <p class="summary">${article.summary}</p>
+                    <p><strong>Source:</strong> ${article.source}</p>
+                    <p><strong>Sentiment Score:</strong> ${sentimentScore}</p>
+                `;
+
+                newsGrid.appendChild(newsItem);
+            });
+        }
+        function toggleDropdown(id) {
+    const dropdownContent = document.getElementById(id);
+    if (dropdownContent.style.maxHeight) {
+        // Collapse the dropdown
+        dropdownContent.style.maxHeight = null;
+    } else {
+        // Expand the dropdown
+        dropdownContent.style.maxHeight = dropdownContent.scrollHeight + "px";
+    }
+}
+let figure_1_spec = "s&psentiment.json";
+vegaEmbed('#Location1', figure_1_spec);
+
+let figure_2_spec = "VIXFear&Greed.json";
+vegaEmbed('#Location2', figure_2_spec);
+let figure_3_spec = "AAIIovertime.json";
+vegaEmbed('#Location3', figure_3_spec);
+    </script>
+</body>
+</html>

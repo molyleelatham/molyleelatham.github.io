@@ -1,0 +1,126 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "VIX vs Fear & Greed Index Correlation",
+      "fontSize": 22,
+      "color": "#e8e8e8",
+      "anchor": "start",
+      "fontWeight": "normal",
+      "font": "Segoe UI"
+    },
+    "width": 800,
+    "height": 500,
+    "background": "#171717",
+    "data": {
+      "url": "https://raw.githubusercontent.com/whit3rabbit/fear-greed-data/main/fear-greed-2011-2023.csv"
+    },
+    "transform": [
+      {
+        "calculate": "timeParse(datum.Date, '%m/%d/%Y')",
+        "as": "parsed_date"
+      },
+      {
+        "calculate": "timeFormat(datum.parsed_date, '%m/%d/%Y')",
+        "as": "formatted_date"
+      },
+      {
+        "lookup": "formatted_date",
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/refs/heads/main/VIX_History.csv"
+          },
+          "key": "DATE",
+          "fields": ["CLOSE"]
+        }
+      }
+    ],
+    "layer": [
+      {
+        "mark": {
+          "type": "point",
+          "filled": true,
+          "opacity": 0.3,
+          "size": 80,
+          "color": "#42A5F5"
+        },
+        "encoding": {
+          "x": {
+            "field": "Fear Greed",
+            "type": "quantitative",
+            "title": "Fear & Greed Index",
+            "scale": {"domain": [0, 100]},
+            "axis": {
+              "labelColor": "#e8e8e8",
+              "labelFont": "Segoe UI",
+              "labelFontSize": 12,
+              "titleFont": "Segoe UI",
+              "titleFontSize": 14,
+              "titleColor": "#e8e8e8",
+              "gridColor": "rgba(255, 255, 255, 0.1)",
+              "tickColor": "#e8e8e8",
+              "domainColor": "#e8e8e8"
+            }
+          },
+          "y": {
+            "field": "CLOSE",
+            "type": "quantitative",
+            "title": "VIX Closing Price",
+            "scale": {"zero": false},
+            "axis": {
+              "labelColor": "#e8e8e8",
+              "labelFont": "Segoe UI",
+              "labelFontSize": 12,
+              "titleFont": "Segoe UI",
+              "titleFontSize": 14,
+              "titleColor": "#e8e8e8",
+              "gridColor": "rgba(255, 255, 255, 0.1)",
+              "tickColor": "#e8e8e8",
+              "domainColor": "#e8e8e8"
+            }
+          },
+          "tooltip": [
+            {"field": "formatted_date", "type": "nominal", "title": "Date"},
+            {"field": "Fear Greed", "type": "quantitative", "title": "Fear & Greed", "format": ".1f"},
+            {"field": "CLOSE", "type": "quantitative", "title": "VIX", "format": ".2f"}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "line",
+          "color": "red",
+          "strokeWidth": 2,
+          "opacity": 0.7
+        },
+        "transform": [
+          {
+            "regression": "CLOSE",
+            "on": "Fear Greed"
+          }
+        ],
+        "encoding": {
+          "x": {
+            "field": "Fear Greed",
+            "type": "quantitative"
+          },
+          "y": {
+            "field": "CLOSE",
+            "type": "quantitative"
+          }
+        }
+      }
+    ],
+    "config": {
+      "view": {"stroke": "transparent"},
+      "font": "Segoe UI",
+      "axis": {
+        "labelFont": "Segoe UI",
+        "titleFont": "Segoe UI",
+        "labelFontSize": 12,
+        "titleFontSize": 14,
+        "labelColor": "#e8e8e8",
+        "titleColor": "#e8e8e8"
+      }
+    }
+  }
+  

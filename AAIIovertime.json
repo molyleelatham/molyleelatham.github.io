@@ -1,0 +1,164 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "AAII Investor Sentiment Over Time",
+    "fontSize": 22,
+    "color": "#e8e8e8",
+    "anchor": "start",
+    "fontWeight": "normal",
+    "subtitle": "Select year range and sentiment type",
+    "subtitleColor": "#9e9e9e",
+    "subtitleFontSize": 14
+  },
+  "width": 800,
+  "height": 500,
+  "background": "#171717",
+  "data": {
+    "url": "https://raw.githubusercontent.com/molyleelatham/molyleelatham.github.io/main/Cleaned_AAIIsentiment.csv"
+  },
+  "params": [
+    {
+      "name": "year_min",
+      "value": 1987,
+      "bind": {
+        "input": "range",
+        "min": 1987,
+        "max": 2024,
+        "step": 1,
+        "name": "Start Year: "
+      }
+    },
+    {
+      "name": "year_max",
+      "value": 2024,
+      "bind": {
+        "input": "range",
+        "min": 1987,
+        "max": 2024,
+        "step": 1,
+        "name": "End Year: "
+      }
+    },
+    {
+      "name": "sentiment_select",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": ["All", "Bullish", "Neutral", "Bearish"],
+        "labels": ["All Sentiments", "Bullish", "Neutral", "Bearish"],
+        "name": "Select Sentiment: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "calculate": "parseFloat(replace(datum.Bullish, '%', ''))",
+      "as": "Bullish_Value"
+    },
+    {
+      "calculate": "parseFloat(replace(datum.Neutral, '%', ''))",
+      "as": "Neutral_Value"
+    },
+    {
+      "calculate": "parseFloat(replace(datum.Bearish, '%', ''))",
+      "as": "Bearish_Value"
+    },
+    {
+      "fold": ["Bullish_Value", "Neutral_Value", "Bearish_Value"],
+      "as": ["Sentiment", "Value"]
+    },
+    {
+      "calculate": "if(datum.Sentiment === 'Bullish_Value', 'Bullish', if(datum.Sentiment === 'Neutral_Value', 'Neutral', 'Bearish'))",
+      "as": "SentimentType"
+    },
+    {
+      "calculate": "year(datum.Date)",
+      "as": "year"
+    },
+    {
+      "filter": "datum.year >= year_min && datum.year <= year_max"
+    },
+    {
+      "filter": "sentiment_select === 'All' || datum.SentimentType === sentiment_select"
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": false,
+    "interpolate": "monotone",
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "Date",
+      "type": "temporal",
+      "title": "Date",
+      "axis": {
+        "labelColor": "#e8e8e8",
+        "titleColor": "#e8e8e8",
+        "gridColor": "#4e526434",
+        "tickColor": "#e8e8e8",
+        "domainColor": "#e8e8e8",
+        "format": "%Y",
+        "labelAngle": -45
+      }
+    },
+    "y": {
+      "field": "Value",
+      "type": "quantitative",
+      "title": "Percentage",
+      "scale": {"domain": [0, 100]},
+      "axis": {
+        "labelColor": "#e8e8e8",
+        "titleColor": "#e8e8e8",
+        "gridColor": "#4e526434",
+        "tickColor": "#e8e8e8",
+        "domainColor": "#e8e8e8",
+        "format": "d"
+      }
+    },
+    "color": {
+      "field": "SentimentType",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Bullish", "Neutral", "Bearish"],
+        "range": ["#00C853", "#42A5F5", "#FF5252"]
+      },
+      "legend": {
+        "title": "Sentiment",
+        "labelColor": "#e8e8e8",
+        "titleColor": "#e8e8e8",
+        "orient": "top-left",
+        "offset": 0,
+        "padding": 10
+      }
+    },
+    "opacity": {
+      "value": 0.8
+    },
+    "tooltip": [
+      {"field": "Date", "type": "temporal", "title": "Date", "format": "%Y-%m-%d"},
+      {"field": "Value", "type": "quantitative", "title": "Percentage", "format": ".1f"},
+      {"field": "SentimentType", "type": "nominal", "title": "Type"}
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": "transparent",
+      "strokeWidth": 0
+    },
+    "font": "Inter",
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelFontSize": 12,
+      "titleFontSize": 14
+    },
+    "legend": {
+      "padding": 10,
+      "strokeColor": "#ffffff33",
+      "cornerRadius": 5,
+      "rowPadding": 8
+    }
+  }
+}

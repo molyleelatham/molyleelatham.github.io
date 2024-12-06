@@ -54,7 +54,7 @@
  }
  
  .logo {
-    font-weight: 600;
+    font-weight: normal;
     font-size: 1.5rem;
  }
  
@@ -119,7 +119,7 @@
     font-size: 1.8rem;
     color: var(--text-primary);
     margin-bottom: 1rem;
-    font-weight: 600;
+    font-weight: normal;
     text-align: center;
  }
  
@@ -356,4 +356,12 @@
 .side-by-side-images img {
     max-width: 48%; /* Make sure images fit within the container */
     height: auto; /* Maintain aspect ratio */
+}
+@font-face {
+   font-family: 'Segoe UI';
+   src: url('assets/fonts/SegoeUI.woff2') format('woff2'),
+        url('assets/fonts/SegoeUI.woff') format('woff'),
+        url('assets/fonts/SegoeUI.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
 }
